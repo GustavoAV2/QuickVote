@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quick Vote</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/tooplate-gymso-style.css">
+    <link rel="stylesheet" href="static/css/tooplate-wave-cafe.css">
+
+    <!-- SCRIPTS -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/aos.js"></script>
+    <script src="static/js/smoothscroll.js"></script>
+    <script src="static/js/custom.js"></script>
+</head>
+<body>
+    <div class="container">
+        Sala:<br/>
+        <input id="room_number" name="room_number" type="tel" size="20" placeholder="Numero da sala...">
+        <input id="button" class="btn btn-primary" type="button" value="Entrar">
+    </div>
+    <script>
+        document.querySelector('#room_number').focus();
+        document.querySelector('#room_number').onkeyup = function(e){
+            if (e.keyCode == 13){
+                document.querySelector('#button').click();
+            }
+        };
+
+        document.querySelector('#button').onclick = function(e){
+            var room_number = document.querySelector('#room_number').value;
+
+            if (room_number != ''){
+                window.location.pathname = '/chat/' + room_number + '/';
+            }else{
+                alert('Você precisa informar o nome numero da sala.');
+                document.querySelector('#room_number').focus();
+            }
+        };
+    </script>
+</body>
+</html>
