@@ -28,7 +28,7 @@
 
     <script>
         var room_number = {{ room }};
-        var route = 'ws://' + window.location.host + '/ws/chat/' + room_number + '/';
+        var route = 'ws://' + window.location.host + '/ws/room/' + room_number.number + '/';
 
         var chatSocket = new WebSocket(route);
 
@@ -51,9 +51,9 @@
 
         document.querySelector('#button').onclick = function(e){
             var messageInput = document.querySelector('#text');
-            var msg = document.querySelector('#text').value();
+            var msg = document.querySelector('#text').value;
 
-            chatSocket.send(JSON.stringfy({
+            chatSocket.send(JSON.stringify({
                 'message': msg
             }));
 
