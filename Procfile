@@ -1,1 +1,1 @@
-web: gunicorn quickvote.wsgi
+web: daphne quickvote.asgi:application --port $PORT --bind 0.0.0.0
