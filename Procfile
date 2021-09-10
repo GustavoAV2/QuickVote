@@ -1,1 +1,1 @@
-web: daphne quickvote.asgi:application --port $PORT --bind 0.0.0.0
+web: daphne quickvote.asgi:application --port $PORT --bind 0.0.0.0 -v2
