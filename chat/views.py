@@ -1,22 +1,11 @@
-from django.views.generic import TemplateView
-from django.utils.safestring import mark_safe
-import json
+from django.shortcuts import render
 
 
-class IndexView(TemplateView):
-    template_name = 'index.html'
+def index(request):
+    return render(request, 'chat/index.html', {})
 
 
-class RoomView(TemplateView):
-    template_name = 'chat.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(RoomView, self).get_context_data(**kwargs)
-
-        # Removendo inseguranças do JSON
-        context['room'] = mark_safe(
-            json.dumps(self.kwargs)
-        )
-        return context
-
-
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name': room_name
+    })
