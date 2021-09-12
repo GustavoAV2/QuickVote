@@ -1,0 +1,273 @@
+<!-- chat/templates/chat/index.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+            <div class="container">
+                <div class="row">
+
+                        <div class="col-lg-8 col-md-10 mx-auto col-12">
+                            <div class="hero-text mt-5 text-center">
+
+                                <h6 data-aos="fade-up" data-aos-delay="140">Votações rápidas!</h6>
+                                <h1 class="text-white" data-aos="fade-up" data-aos-delay="180">Crie salas para votar ou fazer eleições!</h1>
+                                <a  href="#about" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
+                                <a href="#feature" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
+
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+    </section>
+
+    <!-- Enter the Room -->
+    <section class="feature" id="feature">
+        <div class="container">
+            <div class="row">
+
+                <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
+                    <h2 class="mb-3 text-white" data-aos="fade-up" data-aos-delay="180">Entre em uma sala!</h2>
+
+                    <label class="mb-2 text-white" data-aos="fade-up" data-aos-delay="180">Seu nome:</label>
+                    <input type="text" v-model="user.name" placeholder="Usuario" data-aos="fade-up" data-aos-delay="220">
+
+                    <label class="mb-2 text-white" data-aos="fade-up" data-aos-delay="180">Numero:</label>
+                    <input type="tel" v-model="user.room" placeholder="0000000" data-aos="fade-up" data-aos-delay="220">
+
+                    <label class="mb-2 text-white" data-aos="fade-up" data-aos-delay="180">Senha:</label>
+                    <input type="password" v-model="user.password" placeholder="**********" data-aos="fade-up"  data-aos-delay="220">
+
+                    <p data-aos="fade-up" data-aos-delay="240">(Solicite a senha ao dono da sala)</p>
+
+                    <button @click="enterServer()" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="240">Entrar</button>
+                </div>
+
+                <div class="mr-lg-auto col-lg-4 col-md-6 col-12">
+                    <div class="about-working-hours">
+                        <div>
+                            <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Como funciona?</h2>
+
+                            <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">
+                                Participe de salas de votações com seus colegas!
+                            </strong>
+
+                            <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">
+                                Vote em seus colegas ou crie tópicos para serem votados.
+                            </strong>
+
+                            <strong class="mt-3 d-block" data-aos="fade-up" data-aos-delay="700">Você decide!</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+     <!-- Create Room -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="row">
+                <!-- Romm Access -->
+                <div class="mt-lg-auto mb-4 col-lg-5 col-md-10 mx-auto col-12">
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="140">Crie sua sala</h2>
+
+                    <p data-aos="fade-up" data-aos-delay="180">Seu nome:</p>
+                    <input type="text" v-model="user.name" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+
+                    <p data-aos="fade-up" data-aos-delay="180">Tema:</p>
+                    <input type="text" v-model="room.theme" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+
+                    <p data-aos="fade-up" data-aos-delay="180">Senha:</p>
+                    <input type="password" v-model="room.password" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+
+                    <div data-aos="fade-up" data-aos-delay="180">
+                        <p>Tipo de votação:</p>
+                        <select id="select" v-model="type" style="width: 80%;">
+                            <option :value="'users'">Eleição</option>
+                            <option :value="'objects'">Votar em itens</option>
+                        </select>
+
+                        <button @click="createServer()" class="btn custom-btn-dark bg-color mt-3">
+                            Criar sala
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Romm Objects -->
+                <div v-if="type=='objects'" class="ml-lg-auto col-lg-13 col-md-6 col-12" style="display: block;" data-aos="fade-up" data-aos-delay="100">
+                    <template v-if="table && objects.length">
+                        <div  data-aos="fade-up" data-aos-delay="180">
+                            <div class="row table-objects">
+                                <div class="col object" v-for="object in objects" :key="object.name">
+                                    <button @click="deleteObject(object)" style="color:red;" type="button" class="close" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h6>[ refactorString(object.name) ]</h6>
+                                    <p>[ refactorString(object.description) ]</p>
+                                </div>
+                            </div>
+                            <button class="btn custom-btn-dark bg-color mt-3" @click="table = !table">
+                                Voltar a criação
+                            </button>
+                        </div>
+                    </template>
+
+                    <template v-else>
+                        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="180">Objetos</h2>
+
+                        <p data-aos="fade-up" data-aos-delay="180">Nome do Objeto:</p>
+                        <input type="text" v-model="object.name" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+
+                        <p data-aos="fade-up" data-aos-delay="180">Descrição (Opcional):</p>
+                        <input type="text" v-model="object.description" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+
+                        <div>
+                            <button class="btn custom-btn-dark bg-color mt-3" data-aos="fade-up" data-aos-delay="240" @click="createObject()">
+                                Criar Objeto
+                            </button>
+
+                            <button @click="table = !table" id="btn-obj" class="btn custom-btn bordered mt-3 " data-aos="fade-up" data-aos-delay="240">
+                                Ver Objetos
+                            </button>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+        </div>
+     </section>
+
+<!--    What chat room would you like to enter?<br>-->
+<!--    <input id="room-name-input" type="text" size="100"><br>-->
+<!--    <input id="room-name-submit" type="button" value="Enter">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+          delimiters: ['[', ']'],
+          el: '#app',
+          data: {
+            type: "users",
+            table: false,
+            objects: [],
+            object: {
+                'name': '',
+                'description': ''
+            },
+            room: {
+                'room': '',
+                'theme': '',
+                'token': '',
+                'password': ''
+            },
+            user: {
+                'name': '',
+                'room':'',
+                'vote':'',
+                'password': '',
+                'ready': false,
+                'voted_of_numbers': 0,
+                'admin': false,
+            }
+          },
+
+          watch:{
+                ['user.name'](){
+                    this.user.name = this.user.name.slice(0, 30)
+                },
+                ['user.room'](){
+                    if (this.user.room){
+                        this.user.room = this.user.room.slice(0, 6)
+                    }
+                }
+            },
+
+          methods: {
+            createServer(){
+                if (this.validations()){
+                    this.room.objects = this.objects
+
+                    Server.create_room(this.room).then(response => {
+                        this.user.admin = true
+                        const room = response.data
+                        this.user.room = room.room
+                        this.user.token = room.token
+                        localStorage.setItem("user", JSON.stringify(this.user))
+                        localStorage.setItem("token", JSON.stringify(room.token))
+                        this.$router.push('/vote-room')
+                    }).catch(error=>{
+                        console.log(error)
+                        showError('Não foi possivel criar uma sala!')
+                    })
+                }
+            },
+
+            enterServer(){
+                const room = this.user.room
+                const psw = this.user.password
+                Server.if_room_exists(room, psw).then(response => {
+                    if (response.data.exists){
+                        if (response.data.logged){
+                            localStorage.setItem("user", JSON.stringify(this.user))
+                            this.$router.push('/vote-room')
+                        }else{showError('Credenciais incorretas!')}
+                    }
+                    else{showError('Sala não existe!')}
+                }).
+                catch(()=>{showError('Não foi possivel localizar está sala!')})
+            },
+
+            createObject(){
+                const f = obj => {return obj.name.toLowerCase() == this.object.name.toLowerCase()}
+                const validation = this.objects.filter(f)
+                if (!validation.length && this.object.name.length){
+                    this.objects.push({...this.object})
+                    showSuccess(`Objeto ${this.object.name} criado!`)
+                }
+                else{
+                    showError('Esse objeto já existe!')
+                }
+            },
+
+            deleteObject(object){
+                const new_objects = [];
+                for (var i in this.objects){
+                    if (this.objects[i].name != object.name){
+                        new_objects.push(this.objects[i]);
+                    }
+                }
+                this.objects = new_objects;
+            },
+
+            refactorString(desc){
+                debugger
+                if (desc.length > 30){
+                    const string = desc[0]+desc[1]+desc[2]+desc[3]+desc[4]+desc[5]+" ..."
+                    return string
+                }
+                return desc
+            },
+
+            validations(){
+                if (this.user.name < 3) {
+                    showError('Nome de usuário deve ter mais que três caracteres!')
+                    return false
+                }
+                if (this.room.password < 6){
+                    showError('A senha deve ter no minimo seis caracteres!')
+                    return false
+                }
+                if (this.room.theme < 6){
+                    showError('O tema deve ter no minimo seis caracteres!')
+                    return false
+                }
+                return true
+            }
+          }
+        })
+    </script>
+{% endblock %}
