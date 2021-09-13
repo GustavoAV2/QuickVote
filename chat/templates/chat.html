@@ -8,55 +8,152 @@
 </head>
 
 <body>
-    <div id="room">
-        <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-        <input id="chat-message-input" type="text" size="100" v-model="message"><br>
-        <input id="chat-message-submit" type="button" value="Send" v-on:click="sendMessage()">
-        {{ room_name|json_script:"room-name" }}
+    {{ room_name|json_script:"room-name" }}
+
+    <div id="room" class="grid grid-template-rows-4">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>
+            <div class="chat">
+                <div class="container">
+                    <h3 class="right">Username</h3>
+                    <p>Hello. How are you today?</p>
+                    <span class="time-right">11:00</span>
+                </div>
+
+                <div class="container darker">
+                    <h3 class="right">Username</h3>
+                    <p>Hey! I'm fine. Thanks for asking!</p>
+                    <span class="time-left">11:01</span>
+                </div>
+
+                <div class="container">
+                    <h3 class="right">Username</h3>
+                    <p>Sweet! So, what do you wanna do today?</p>
+                    <span class="time-right">11:02</span>
+                </div>
+
+                <div class="container darker">
+                    <h3 class="right">Username</h3>
+                    <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+                    <span class="time-left">11:05</span>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <input id="chat-message-input" type="text" v-model="message">
+                <button>Enviar</button>
+            </div>
+        </div>
+        
+        <!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
+        <!-- <input id="chat-message-submit" type="button" value="Send" v-on:click="sendMessage()">  -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
-    var app = new Vue({
-        el: '#room',
-        delimiters: ['[', ']'],
+        var app = new Vue({
+            el: '#room',
+            delimiters: ['[', ']'],
 
-        data: {
-            message: "",
-            chatSocket: null,
-            roomName: JSON.parse(document.getElementById('room-name').textContent)
-        },
+            data: {
+                message: "",
+                chatSocket: null,
+                roomName: JSON.parse(document.getElementById('room-name').textContent)
+            },
+            created(){
+                this.chatSocket = new WebSocket(
+                    'ws://' +
+                    window.location.host +
+                    '/ws/chat/' +
+                    this.roomName +
+                    '/'
+                );
+                this.chatSocket.onmessage = function (e) {
+                    const data = JSON.parse(e.data);
+                    document.querySelector('#chat-log').value += (data.message + '\n');
+                };
 
-        created(){
-            this.roomName;
-            this.chatSocket = new WebSocket(
-                'ws://' +
-                window.location.host +
-                '/ws/chat/' +
-                this.roomName +
-                '/'
-            );
-            this.chatSocket.onmessage = function (e) {
-                const data = JSON.parse(e.data);
-                document.querySelector('#chat-log').value += (data.message + '\n');
-            };
-
-            this.chatSocket.onclose = function (e) {
-                console.error('Chat socket closed unexpectedly');
-            };
-        },
-
-        methods:{
-            sendMessage(){
-                console.log("Clicou")
-                console.log(this.message)
-                this.chatSocket.send(JSON.stringify({
-                    'message': this.message
-                }));
-                this.message = '';
+                this.chatSocket.onclose = function (e) {
+                    console.error('Chat socket closed unexpectedly');
+                };
+            },
+            methods:{
+                sendMessage(){
+                    console.log("Clicou")
+                    console.log(this.message)
+                    this.chatSocket.send(JSON.stringify({
+                        'message': this.message
+                    }));
+                    this.message = '';
+                }
             }
-        }
-    })
+        })
     </script>
+
+    <style>
+        #chat-message-input{
+            width: 100%;
+        }
+        .chat{
+            overflow-y: scroll;
+            max-height: 500px;
+            padding: 5px;
+            background-color: gray;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .grid-template-rows-4 {
+            grid-template-columns: 300px auto 50px;
+            grid-template-rows: 100px auto auto;
+        }
+        #room{
+            display: grid;
+        }
+        
+        /* Chat containers */
+        .container {
+          border: 2px solid #dedede;
+          background-color: #f1f1f1;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 5px 0;
+        }
+
+        /* Darker chat container */
+        .darker {
+          border-color: #ccc;
+          background-color: #ddd;
+        }
+
+        /* Clear floats */
+        .container::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+        /* Style time text */
+        .time-right {
+          float: right;
+          color: #aaa;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+
+        /* Style time text */
+        .time-left {
+          float: left;
+          color: #999;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+    </style>
 </body>
 </html>
