@@ -1,0 +1,21 @@
+{% load static %}
+<div class="container chat-top">
+    <div class="chat">
+        <div v-for="msg in messages">
+            <div v-if="msg.name != username" class="container bottom-1px darker">
+                <h3 class="right">[msg.name]</h3>
+                <p class="message">[msg.message]</p>
+                <span class="time-left">[msg.time]</span>
+            </div>
+            <div v-if="msg.name == username" class="container bottom-1px">
+                <h3 class="right">[msg.name]</h3>
+                <p class="message">[msg.message]</p>
+                <span class="time-right">[msg.time]</span>
+            </div>
+        </div>
+    </div>
+    <div class="chat-message">
+        <input id="chat-message-input" type="text" v-model="message">
+        <button class="btn btn-info" @click="sendMessage()">Enviar</button>
+    </div>
+</div>
