@@ -4,125 +4,130 @@
 {% block content %}
 
 {% include 'header_room.html' %}
-
 <div id="room">
-<section class="about section voting" id="feature">
-    {{ room_name|json_script:"room-name" }}
-    {{ username|json_script:"username" }}
-    <template v-if="!loading">
-        <div class="tm-container">
-            <div class="tm-row">
-            <!-- Site Header -->
-            <div class="tm-left">
-                <div class="tm-left-inner">
-                <div class="tm-site-header">
-                    <h6>Participantes: [users.length]</h6>
-                    <h6 v-if="numUsersReady.not_ready">Em preparação: [numUsersReady.not_ready]</h6>
-                    <h6 style="color:rgb(89, 231, 89);" v-if="!numUsersReady.not_ready && !room.started">
-                        Todos estão prontos!
-                    </h6>
-                </div>
+    <section class="about section voting" id="feature">
+        {{ room_name|json_script:"room-name" }}
+        {{ username|json_script:"username" }}
 
-                <nav class="tm-site-nav">
-                    <ul class="tm-site-nav-ul">
-                        <template v-if="user_now.admin">
-                            <li class="tm-page-nav-item">
-                                <a class="init-button" v-if="room.started" @click="finish_votes()">
-                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
-                                    <span id="init">Finalizar</span>
-                                </a>
-                                <a class="init-button" v-else :disabled="blockedStarted" @click="started_votes()">
-                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
-                                    <span id="init">Iniciar</span>
-                                </a>
-                            </li>
-                        </template>
-                        <template v-if="!room.started">
-                            <li class="tm-page-nav-item">
-                                <a class="ready-button" v-if="!user_now.ready" @click="readyChange()">
-                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
-                                    <span id="ready">Pronto</span>
-                                </a>
-                                <a class="ready-button" v-else @click="readyChange()">
-                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
-                                    <span id="ready">Aguardar</span>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </nav>
-                </div>
-            </div>
+        <template v-if="!loading">
+            <div class="tm-container">
+                <div class="tm-row">
+                    <!-- Site Header -->
+                    <div class="tm-left">
+                        <div class="tm-left-inner">
 
-            <div class="tm-right">
-                <main class="tm-main">
-                <div id="drink" class="tm-page-content">
-                    <!-- Card Page -->
-                    <nav class="tm-black-bg tm-drinks-nav">
-                        <ul>
-                            <li>
-                                <template v-if="!room.started && winner">
-                                    <!-- <a class="tm-tab-link active"></a> -->
-                                    <h6>Vencedor: <strong style="color:rgb(89, 231, 89);">[winner]</strong></h6>
-                                </template>
-
-                                <template v-if="room.started">
-                                    <h6>Votou em: <strong v-if="user_now.vote">[user_now.vote]</strong></h6>
-                                </template>
-
-                                <template v-if="!room.started && !winner">
-                                    <h6 style="font-size:16px;">Assim que a votação for iniciada</h6>
-                                    <h6 style="font-size:16px;">clique nos usuários para votar!</h6>
-                                </template>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div id="cold" class="tm-tab-content">
-                    <div class="tm-list">
-                        <template v-if="room.type == 'objects'">
-                            <div class="tm-list-item" v-for="obj in room.objects" :key="obj.name">
-                                <div class="tm-black-bg tm-list-item-text" @click="voted(obj.name)">
-                                    <h3 class="tm-list-item-name">
-                                        [toTitleCase(obj.name)]
-                                    </h3>
-                                    <p class="tm-list-item-description">[obj.description]</p>
-                                </div>
+                            <div class="tm-site-header size-header">
+                                <h6>Participantes: [users.length]</h6>
+                                <h6 v-if="numUsersReady.not_ready">Em preparação: [numUsersReady.not_ready]</h6>
+                                <h6 style="color:rgb(89, 231, 89);" v-if="!numUsersReady.not_ready && !room.started">
+                                    Todos estão prontos!
+                                </h6>
+                                <nav class="tm-site-nav">
+                                    <ul class="tm-site-nav-ul">
+                                        <template v-if="user_now.admin">
+                                            <li class="tm-page-nav-item">
+                                                <a class="init-button" v-if="room.started" @click="finish_votes()">
+                                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
+                                                    <span id="init">Finalizar</span>
+                                                </a>
+                                                <a class="init-button" v-else :disabled="blockedStarted"
+                                                    @click="started_votes()">
+                                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
+                                                    <span id="init">Iniciar</span>
+                                                </a>
+                                            </li>
+                                        </template>
+                                        <template v-if="!room.started">
+                                            <li class="tm-page-nav-item">
+                                                <a class="ready-button" v-if="!user_now.ready" @click="readyChange()">
+                                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
+                                                    <span id="ready">Pronto</span>
+                                                </a>
+                                                <a class="ready-button" v-else @click="readyChange()">
+                                                    <i class="fas fa-mug-hot tm-page-link-icon"></i>
+                                                    <span id="ready">Aguardar</span>
+                                                </a>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </nav>
                             </div>
-                        </template>
-
-                        <template v-else>
-                            <div class="tm-list-item" v-for="user in users" :key="user.name">
-                                <div class="tm-black-bg tm-list-item-text" @click="voted(user.name)">
-                                    <h3 class="tm-list-item-name">[toTitleCase(user.name)]
-                                        <span v-if="user.ready && !room.started" class="tm-list-item-price">
-                                            Pronto
-                                        </span>
-                                    </h3>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
+                            
+                            {% include 'chat.html' %}
+                        </div>
                     </div>
 
+                    <div class="tm-right">
+                        <main class="tm-main">
+                            <div id="drink" class="tm-page-content">
+                                <!-- Card Page -->
+                                <nav class="tm-black-bg tm-drinks-nav">
+                                    <ul>
+                                        <li>
+                                            <template v-if="!room.started && winner">
+                                                <!-- <a class="tm-tab-link active"></a> -->
+                                                <h6>Vencedor: <strong style="color:rgb(89, 231, 89);">[winner]</strong>
+                                                </h6>
+                                            </template>
+
+                                            <template v-if="room.started">
+                                                <h6>Votou em: <strong v-if="user_now.vote">[user_now.vote]</strong></h6>
+                                            </template>
+
+                                            <template v-if="!room.started && !winner">
+                                                <h6 style="font-size:16px;">Assim que a votação for iniciada</h6>
+                                                <h6 style="font-size:16px;">clique nos usuários para votar!</h6>
+                                            </template>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <div id="cold" class="tm-tab-content">
+                                    <div class="tm-list">
+                                        <template v-if="room.type == 'objects'">
+                                            <div class="tm-list-item" v-for="obj in room.objects" :key="obj.name">
+                                                <div class="tm-black-bg tm-list-item-text" @click="voted(obj.name)">
+                                                    <h3 class="tm-list-item-name">
+                                                        [toTitleCase(obj.name)]
+                                                    </h3>
+                                                    <p class="tm-list-item-description">[obj.description]</p>
+                                                </div>
+                                            </div>
+                                        </template>
+
+                                        <template v-else>
+                                            <div class="tm-list-item" v-for="user in users" :key="user.name">
+                                                <div class="tm-black-bg tm-list-item-text" @click="voted(user.name)">
+                                                    <h3 class="tm-list-item-name">[toTitleCase(user.name)]
+                                                        <span v-if="user.ready && !room.started"
+                                                            class="tm-list-item-price">
+                                                            Pronto
+                                                        </span>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </main>
+                    </div>
                 </div>
-                </main>
             </div>
-            </div>
-        </div>
 
-    </template>
+        </template>
 
-    <template v-else>
-        <div class="container">
-            <div class="spinner-border text-info" role="status">
-                <span class="visually-hidden"></span>
+        <template v-else>
+            <div class="container">
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
             </div>
-        </div>
-    </template>
+        </template>
 
     </section>
-</template>
+    </template>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -133,6 +138,10 @@ var app = new Vue({
     data: {
         username: JSON.parse(document.getElementById('username').textContent),
         roomName: JSON.parse(document.getElementById('room-name').textContent),
+        message: "",
+        messages: [
+            { name: 'Quick Vote', message: 'Seja bem vindo!', time: '' }
+        ],
         users: [],
         room: {
             type: 'users'
@@ -150,103 +159,132 @@ var app = new Vue({
         copy: false,
         time: 15
     },
-    created(){
+    created() {
         this.user_now.name = this.username;
         this.user_now.room = this.roomName;
-
+        
+        // Room Socket
         this.roomSocket = new WebSocket(
-            'ws://' + window.location.host + '/ws/room/'
-            + this.roomName + '/' + this.username + '/'
+            'ws://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
         );
         this.roomSocket.onmessage = e => {
             this.room = JSON.parse(e.data);
             this.users = this.room.users;
-            this.user_now = this.users.filter((value)=>{return value.name == toString(this.username)});
+            this.user_now = this.users.filter((value) => { return value.name == toString(this.username) });
         };
-        this.roomSocket.onclose = function (e) {};
+
+        // Chat Socket
+        this.chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + this.roomName + '/');
+
+        this.chatSocket.onmessage = e => {
+            const data = JSON.parse(e.data);
+            this.messages.push({
+                name: data.name,
+                message: data.message,
+                time: this.getTimeStr()
+            });
+        };
+        this.chatSocket.onclose = function (e) {
+            console.error('Chat socket closed unexpectedly');
+        };
     },
     methods: {
-        ifVotedClass(user){
+        ifVotedClass(user) {
             return user.vote ? "ready" : "notReady";
         },
         toTitleCase(name) {
-            return name.replace(/\w\S*/g, function(txt) {
+            return name.replace(/\w\S*/g, function (txt) {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
             });
         },
-        whoIsTheWinner(){
+        whoIsTheWinner() {
             var last_best_score = 0;
             var winner = null;
             var items = [];
-            if (this.room.type=='objects'){items = this.room.objects}
-            else{items = this.room.users}
+            if (this.room.type == 'objects') { items = this.room.objects }
+            else { items = this.room.users }
 
-            for (var index in items){
-                if (items[index].number_of_votes == last_best_score){winner = null}
-                if (items[index].number_of_votes > last_best_score){
+            for (var index in items) {
+                if (items[index].number_of_votes == last_best_score) { winner = null }
+                if (items[index].number_of_votes > last_best_score) {
                     winner = items[index].name;
                     last_best_score = items[index].number_of_votes;
                 }
             }
             this.winner = winner;
         },
-        voted(user){
-            if (this.room.started){
+        voted(user) {
+            if (this.room.started) {
                 this.user_now.vote = user;
                 this.roomSocket.send(JSON.stringify(this.user_now));
             }
         },
-        readyChange(){
+        readyChange() {
             console.log(this.user_now);
             this.user_now.ready = !this.user_now.ready;
             console.log(this.user_now)
             this.roomSocket.send(JSON.stringify(this.user_now));
         },
-        started_votes(){
+        started_votes() {
             this.winner = null;
-            if (server.started == true){
-            }
-            else{
-            }
+            if (server.started == true) { }
+            else { }
         },
-        finish_votes(){
-            if (server.started == false){
-            }
-            else{
-            }
+        sendMessage() {
+            this.chatSocket.send(JSON.stringify({
+                'name': this.username,
+                'message': this.message
+            }));
+            this.message = '';
+        },
+        finish_votes() {
+            if (server.started == false) {}
+            else {}
+        },
+        getTimeStr(){
+            // Obtém a data/hora atual
+            var date = new Date();
+
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            
+            // Formata a data e a hora (note o mês + 1)
+            if (min.toString().length < 2){ var min = "0" + min; }
+            var str_time = hour + ':' + min;
+            return str_time
         }
     },
 
-    watch:{
-        ['user_now.ready'](){
+    watch: {
+        ['user_now.ready']() {
             this.user_now.ready ? alert('Você está preparado!') : alert('Você não está preparado!')
         },
-        ['room.started'](){
-            if (!this.room.started){
+        ['room.started']() {
+            if (!this.room.started) {
                 this.whoIsTheWinner();
             }
         },
-        copy(){
+        copy() {
             setTimeout(() => {
                 this.copy = false;
             }, 2500)
         }
     },
 
-    computed:{
-        numUsersReady(){
-            const ready = this.users.filter((value)=>{return value.ready});
-            const not_ready = this.users.filter((value)=>{return value.ready ? false : true});
-            return {'ready': ready.length, 'not_ready': not_ready.length};
+    computed: {
+        numUsersReady() {
+            const ready = this.users.filter((value) => { return value.ready });
+            const not_ready = this.users.filter((value) => { return value.ready ? false : true });
+            return { 'ready': ready.length, 'not_ready': not_ready.length };
         },
 
-        blockedStarted(){
+        blockedStarted() {
             return this.numUsersReady['ready'] == this.users.length ? false : true
         }
     },
 
-    beforeDestroy(){
-        if (this.roomSocket){
+    beforeDestroy() {
+        if (this.roomSocket) {
             this.roomSocket.onerror = this.roomSocket.onopen = this.roomSocket.onclose = null;
             this.roomSocket.close();
         }
@@ -255,31 +293,55 @@ var app = new Vue({
 </script>
 
 <style>
-.spinner-border{
-    margin: 15% 10% 10% 10%;
-}
-.alert{
-    margin-top: 10px;
-    width: 200px;
-}
-.notReady{
-    color: red;
-    font-size: 25px;
-}
-.ready{
-    color: green;
-    font-size: 25px;
-}
-/* Animação */
-.transfer-enter-active{
-  animation: transfer-in 1s ease;
-  transition: opacity 1s;
-}
-.transfer-enter, .transfer-leave-to {
-  opacity: 0;
-}
-.list-group-item:hover{
-    background-color: rgba(72, 166, 255, 0.10);
-}
+    .section{
+        padding: 4rem 0;
+    }
+    .tm-site-header{
+        height: 100%;
+    }
+    .size-header{
+        padding: 15px;
+    }
+    .tm-page-nav-item{
+        padding-bottom: 1%;
+    }
+    .spinner-border {
+        margin: 15% 10% 10% 10%;
+    }
+    .alert {
+        margin-top: 10px;
+        width: 200px;
+    }
+    .notReady {
+        color: red;
+        font-size: 25px;
+    }
+    .ready {
+        color: green;
+        font-size: 25px;
+    }
+
+    /* Animação */
+    .transfer-enter-active {
+        animation: transfer-in 1s ease;
+        transition: opacity 1s;
+    }
+    .transfer-enter,
+    .transfer-leave-to {
+        opacity: 0;
+    }
+    .list-group-item:hover {
+        background-color: rgba(72, 166, 255, 0.10);
+    }
+    .message-bubble 
+    { padding: 10px 0px 10px 0px; }
+
+    .message-bubble:nth-child(even) { background-color: #F5F5F5; }
+
+    .message-bubble > *
+    { padding-left: 10px; }
+
+    .panel-body { padding: 0px; }
+    .panel-heading { background-color: #3d6da7 !important; color: white !important; }
 </style>
 {% endblock %}
