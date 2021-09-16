@@ -17,6 +17,10 @@ class RoomInterface:
         self._started = False
         self.users = users
 
+    @property
+    def started(self):
+        return self._started
+
     def new_admin(self, index: int = None):
         if self.users:
             self.users[index].change_administrator_status()
