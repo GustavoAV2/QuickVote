@@ -146,6 +146,7 @@ var app = new Vue({
         ],
         users: [],
         room: {
+            started: false,
             type: 'users'
         },
         roomSocket: null,
@@ -155,6 +156,7 @@ var app = new Vue({
             name: '',
             room: '',
             vote: '',
+            command: '',
             admin: false,
             ready: false
         },
@@ -221,15 +223,6 @@ var app = new Vue({
             }
             this.winner = winner;
         },
-        started_votes() {
-            this.winner = null;
-            if (server.started == true) { }
-            else { }
-        },
-        finish_votes() {
-            if (server.started == false) {}
-            else {}
-        },
         
         // WebSockets Functions 
         sendMessage() {
@@ -241,14 +234,27 @@ var app = new Vue({
         voted(user) {
             if (this.room.started) {
                 this.user_now.vote = user;
+                this.user_now.command = 'update_user';
                 this.roomSocket.send(JSON.stringify(this.user_now));
             }
         },
         readyChange() {
             this.user_now.ready = !this.user_now.ready;
-            console.log(this.user_now)
+            this.user_now.command = 'update_user';
             this.roomSocket.send(JSON.stringify(this.user_now));
         },
+        started_votes() {
+            this.winner = null;
+            if (this.users.filter((value) => { return !value.ready }).length == 0){
+                this.user_now.command = 'stop_or_run_room';
+                this.roomSocket.send(JSON.stringify(this.user_now));
+            }
+            else{ alert('Existem jogadores que ainda não estão prontos!') }
+        },
+        finish_votes() { 
+            this.user_now.command = 'stop_or_run_room';
+            this.roomSocket.send(JSON.stringify(this.user_now));
+        }
     },
 
     watch: {
