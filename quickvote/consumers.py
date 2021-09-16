@@ -17,7 +17,7 @@ class RoomConsumer(WebsocketConsumer):
             self.actions.connect_room(self.username, self.room_name)
         else:
             self.actions.create_room_for_users(self.room_name, "Theme",
-                                               users=[User(self.username, self.room_name)])
+                                               users=[User(self.username, self.room_name, admin=True)])
 
         # Join room group
         async_to_sync(self.channel_layer.group_add)(

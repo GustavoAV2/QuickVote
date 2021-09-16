@@ -155,6 +155,7 @@ var app = new Vue({
             name: '',
             room: '',
             vote: '',
+            admin: false,
             ready: false
         },
         winner: null,
@@ -172,12 +173,11 @@ var app = new Vue({
         this.roomSocket.onmessage = e => {
             this.room = JSON.parse(e.data);
             this.users = this.room.users;
-            this.user_now = this.users.filter((value) => { return value.name == toString(this.username) });
+            this.user_now = this.users.filter((value) => { return value.name == this.username })[0];
         };
 
         // Chat Socket
         this.chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + this.roomName + '/');
-
         this.chatSocket.onmessage = e => {
             const data = JSON.parse(e.data);
             this.messages.push({
@@ -186,13 +186,19 @@ var app = new Vue({
                 time: this.getTimeStr()
             });
         };
-        this.chatSocket.onclose = function (e) {
-            console.error('Chat socket closed unexpectedly');
-        };
+        this.chatSocket.onclose = function (e) { };
     },
     methods: {
-        ifVotedClass(user) {
-            return user.vote ? "ready" : "notReady";
+        // Handling Data
+        getTimeStr(){
+            var date = new Date();
+            // Obtém a data/hora atual
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            
+            if (min.toString().length < 2){ var min = "0" + min; }
+            var str_time = hour + ':' + min;
+            return str_time
         },
         toTitleCase(name) {
             return name.replace(/\w\S*/g, function (txt) {
@@ -215,6 +221,23 @@ var app = new Vue({
             }
             this.winner = winner;
         },
+        started_votes() {
+            this.winner = null;
+            if (server.started == true) { }
+            else { }
+        },
+        finish_votes() {
+            if (server.started == false) {}
+            else {}
+        },
+        
+        // WebSockets Functions 
+        sendMessage() {
+            this.chatSocket.send(JSON.stringify({
+                'name': this.username, 'message': this.message
+            }));
+            this.message = '';
+        },
         voted(user) {
             if (this.room.started) {
                 this.user_now.vote = user;
@@ -222,39 +245,10 @@ var app = new Vue({
             }
         },
         readyChange() {
-            console.log(this.user_now);
             this.user_now.ready = !this.user_now.ready;
             console.log(this.user_now)
             this.roomSocket.send(JSON.stringify(this.user_now));
         },
-        started_votes() {
-            this.winner = null;
-            if (server.started == true) { }
-            else { }
-        },
-        sendMessage() {
-            this.chatSocket.send(JSON.stringify({
-                'name': this.username,
-                'message': this.message
-            }));
-            this.message = '';
-        },
-        finish_votes() {
-            if (server.started == false) {}
-            else {}
-        },
-        getTimeStr(){
-            // Obtém a data/hora atual
-            var date = new Date();
-
-            var hour = date.getHours();
-            var min = date.getMinutes();
-            
-            // Formata a data e a hora (note o mês + 1)
-            if (min.toString().length < 2){ var min = "0" + min; }
-            var str_time = hour + ':' + min;
-            return str_time
-        }
     },
 
     watch: {
@@ -262,14 +256,10 @@ var app = new Vue({
             this.user_now.ready ? alert('Você está preparado!') : alert('Você não está preparado!')
         },
         ['room.started']() {
-            if (!this.room.started) {
-                this.whoIsTheWinner();
-            }
+            if (!this.room.started) { this.whoIsTheWinner(); }
         },
         copy() {
-            setTimeout(() => {
-                this.copy = false;
-            }, 2500)
+            setTimeout(() => { this.copy = false; }, 2500)
         }
     },
 
