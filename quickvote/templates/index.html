@@ -2,21 +2,25 @@
 
 {% load static %}
 {% block content %}
+
+{% include 'header_menu.html' %}
+
+<div id="home-page">
     <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
         <div class="bg-overlay"></div>
             <div class="container">
                 <div class="row">
 
-                        <div class="col-lg-8 col-md-10 mx-auto col-12">
-                            <div class="hero-text mt-5 text-center">
+                    <div class="col-lg-8 col-md-10 mx-auto col-12">
+                        <div class="hero-text mt-5 text-center">
 
-                                <h6 data-aos="fade-up" data-aos-delay="140">Votações rápidas!</h6>
-                                <h1 class="text-white" data-aos="fade-up" data-aos-delay="180">Crie salas para votar ou fazer eleições!</h1>
-                                <a  href="#about" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
-                                <a href="#feature" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
+                            <h6 data-aos="fade-up" data-aos-delay="140">Votações rápidas!</h6>
+                            <h1 class="text-white" data-aos="fade-up" data-aos-delay="180">Crie salas para votar ou fazer eleições!</h1>
+                            <a  href="#about" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
+                            <a href="#feature" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
 
-                            </div>
                         </div>
+                    </div>
 
                 </div>
             </div>
@@ -138,135 +142,115 @@
 
             </div>
         </div>
-     </section>
-
+    </section>
+</div>
 <!--    What chat room would you like to enter?<br>-->
 <!--    <input id="room-name-input" type="text" size="100"><br>-->
 <!--    <input id="room-name-submit" type="button" value="Enter">-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-          delimiters: ['[', ']'],
-          el: '#app',
-          data: {
-            type: "users",
-            table: false,
-            objects: [],
-            object: {
-                'name': '',
-                'description': ''
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+      delimiters: ['[', ']'],
+      el: '#home-page',
+      data: {
+        type: "users",
+        table: false,
+        objects: [],
+        object: {
+            'name': '',
+            'description': ''
+        },
+        room: {
+            'room': '',
+            'theme': '',
+            'password': ''
+        },
+        user: {
+            'name': '',
+            'room':'',
+            'vote':'',
+            'password': '',
+            'ready': false,
+            'voted_of_numbers': 0,
+            'admin': false,
+        }
+      },
+
+      watch:{
+            ['user.name'](){
+                this.user.name = this.user.name.slice(0, 30)
             },
-            room: {
-                'room': '',
-                'theme': '',
-                'token': '',
-                'password': ''
-            },
-            user: {
-                'name': '',
-                'room':'',
-                'vote':'',
-                'password': '',
-                'ready': false,
-                'voted_of_numbers': 0,
-                'admin': false,
+            ['user.room'](){
+                if (this.user.room){
+                    this.user.room = this.user.room.slice(0, 6)
+                }
             }
-          },
+        },
 
-          watch:{
-                ['user.name'](){
-                    this.user.name = this.user.name.slice(0, 30)
-                },
-                ['user.room'](){
-                    if (this.user.room){
-                        this.user.room = this.user.room.slice(0, 6)
-                    }
-                }
-            },
-
-          methods: {
-            createServer(){
-                if (this.validations()){
-                    this.room.objects = this.objects
-
-                    Server.create_room(this.room).then(response => {
-                        this.user.admin = true
-                        const room = response.data
-                        this.user.room = room.room
-                        this.user.token = room.token
-                        localStorage.setItem("user", JSON.stringify(this.user))
-                        localStorage.setItem("token", JSON.stringify(room.token))
-                        this.$router.push('/vote-room')
-                    }).catch(error=>{
-                        console.log(error)
-                        showError('Não foi possivel criar uma sala!')
-                    })
-                }
-            },
-
-            enterServer(){
-                const room = this.user.room
-                const psw = this.user.password
-                Server.if_room_exists(room, psw).then(response => {
-                    if (response.data.exists){
-                        if (response.data.logged){
-                            localStorage.setItem("user", JSON.stringify(this.user))
-                            this.$router.push('/vote-room')
-                        }else{showError('Credenciais incorretas!')}
-                    }
-                    else{showError('Sala não existe!')}
-                }).
-                catch(()=>{showError('Não foi possivel localizar está sala!')})
-            },
-
-            createObject(){
-                const f = obj => {return obj.name.toLowerCase() == this.object.name.toLowerCase()}
-                const validation = this.objects.filter(f)
-                if (!validation.length && this.object.name.length){
-                    this.objects.push({...this.object})
-                    showSuccess(`Objeto ${this.object.name} criado!`)
-                }
-                else{
-                    showError('Esse objeto já existe!')
-                }
-            },
-
-            deleteObject(object){
-                const new_objects = [];
-                for (var i in this.objects){
-                    if (this.objects[i].name != object.name){
-                        new_objects.push(this.objects[i]);
-                    }
-                }
-                this.objects = new_objects;
-            },
-
-            refactorString(desc){
-                debugger
-                if (desc.length > 30){
-                    const string = desc[0]+desc[1]+desc[2]+desc[3]+desc[4]+desc[5]+" ..."
-                    return string
-                }
-                return desc
-            },
-
-            validations(){
-                if (this.user.name < 3) {
-                    showError('Nome de usuário deve ter mais que três caracteres!')
-                    return false
-                }
-                if (this.room.password < 6){
-                    showError('A senha deve ter no minimo seis caracteres!')
-                    return false
-                }
-                if (this.room.theme < 6){
-                    showError('O tema deve ter no minimo seis caracteres!')
-                    return false
-                }
-                return true
+      methods: {
+        createServer(){
+            if (this.validations()){
+                this.room.objects = this.objects
+                window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/';
             }
-          }
-        })
-    </script>
+        },
+
+        enterServer(){
+            const room = this.user.room
+            const psw = this.user.password
+            window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/';
+            <!-- alert('Credenciais incorretas!')-->
+            <!-- alert('Sala não existe!')-->
+            <!-- alert('Não foi possivel localizar está sala!')-->
+        },
+
+        createObject(){
+            const f = obj => {return obj.name.toLowerCase() == this.object.name.toLowerCase()}
+            const validation = this.objects.filter(f)
+            if (!validation.length && this.object.name.length){
+                this.objects.push({...this.object})
+                alert(`Objeto ${this.object.name} criado!`)
+            }
+            else{
+                alert('Esse objeto já existe!')
+            }
+        },
+
+        deleteObject(object){
+            const new_objects = [];
+            for (var i in this.objects){
+                if (this.objects[i].name != object.name){
+                    new_objects.push(this.objects[i]);
+                }
+            }
+            this.objects = new_objects;
+        },
+
+        refactorString(desc){
+            debugger
+            if (desc.length > 30){
+                const string = desc[0]+desc[1]+desc[2]+desc[3]+desc[4]+desc[5]+" ..."
+                return string
+            }
+            return desc
+        },
+
+        validations(){
+            if (this.user.name < 3) {
+                alert('Nome de usuário deve ter mais que três caracteres!')
+                return false
+            }
+            if (this.room.password < 6){
+                alert('A senha deve ter no minimo seis caracteres!')
+                return false
+            }
+            if (this.room.theme < 6){
+                alert('O tema deve ter no minimo seis caracteres!')
+                return false
+            }
+            return true
+        }
+      }
+    })
+</script>
 {% endblock %}
