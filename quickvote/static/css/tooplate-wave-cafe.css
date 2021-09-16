@@ -95,7 +95,7 @@ h2 { margin-top: 0; }
 .tm-site-nav-ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .tm-page-nav-item { margin-top: 20px; }
@@ -108,27 +108,27 @@ h2 { margin-top: 0; }
 }
 .ready-button {
     border: solid 2px rgb(89, 231, 89);
-    min-width: 240px;
+    min-width: 180px;
     border-radius: 4px;
-    height: 100px;
+    height: 80px;
     cursor: pointer;
     background-color: none;
     display: flex;
     text-decoration: none;
     align-items: center;      
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .init-button{
-    min-width: 240px;
+    min-width: 180px;
     border-radius: 4px;
-    height: 100px;
+    height: 80px;
     cursor: pointer;
     border: solid 2px #f13a11;
     display: flex;
     text-decoration: none;
     align-items: center;   
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .init-button:hover,
