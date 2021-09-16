@@ -4,6 +4,7 @@
 {% block content %}
 
 {% include 'header_room.html' %}
+
 <div id="room">
     <section class="about section voting" id="feature">
         {{ room_name|json_script:"room-name" }}
@@ -52,8 +53,9 @@
                                     </ul>
                                 </nav>
                             </div>
-                            
+
                             {% include 'chat.html' %}
+
                         </div>
                     </div>
 
