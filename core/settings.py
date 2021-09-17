@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h6__pz5m$yk#s2l93$c6ux=%!r1hm%3h%5-^$pb9wzv5^gp*@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
 
 ASGI_APPLICATION = "core.routing.application"
 
