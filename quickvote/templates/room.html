@@ -170,7 +170,7 @@ var app = new Vue({
 
         // Room Socket
         this.roomSocket = new WebSocket(
-            'ws://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
+            'wss://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
         );
         this.roomSocket.onmessage = e => {
             this.room = JSON.parse(e.data);
@@ -179,7 +179,7 @@ var app = new Vue({
         };
 
         // Chat Socket
-        this.chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + this.roomName + '/');
+        this.chatSocket = new WebSocket('wss://' + window.location.host + '/ws/chat/' + this.roomName + '/');
         this.chatSocket.onmessage = e => {
             const data = JSON.parse(e.data);
             this.messages.push({
