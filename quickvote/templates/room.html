@@ -170,16 +170,19 @@ var app = new Vue({
         
         // Room Socket
         this.roomSocket = new WebSocket(
-            'wss://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
+            'ws://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
         );
         this.roomSocket.onmessage = e => {
             this.room = JSON.parse(e.data);
             this.users = this.room.users;
             this.user_now = this.users.filter((value) => { return value.name == this.username })[0];
+            console.log('Recebido:');
+            console.log(JSON.parse(e.data));
+            console.log('Recebido acima:');
         };
 
         // Chat Socket
-        this.chatSocket = new WebSocket('wss://' + window.location.host + '/ws/chat/' + this.roomName + '/');
+        this.chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + this.roomName + '/');
         this.chatSocket.onmessage = e => {
             const data = JSON.parse(e.data);
             this.messages.push({
@@ -248,19 +251,23 @@ var app = new Vue({
             if (this.users.filter((value) => { return !value.ready }).length == 0){
                 this.user_now.command = 'stop_or_run_room';
                 this.roomSocket.send(JSON.stringify(this.user_now));
+                // this.room.started = true;
             }
-            else{ alert('Existem jogadores que ainda não estão prontos!') }
+            else{ 
+                // alert('Existem jogadores que ainda não estão prontos!') 
+            }
         },
         finish_votes() { 
             this.user_now.command = 'stop_or_run_room';
             this.roomSocket.send(JSON.stringify(this.user_now));
+            this.room.started = false;
         }
     },
 
     watch: {
-        ['user_now.ready']() {
-            this.user_now.ready ? alert('Você está preparado!') : alert('Você não está preparado!')
-        },
+        // ['user_now.ready']() {
+        //     this.user_now.ready ? alert('Você está preparado!') : alert('Você não está preparado!')
+        // },
         ['room.started']() {
             if (!this.room.started) { this.whoIsTheWinner(); }
         },

@@ -1,8 +1,10 @@
 # chat/consumers.py
 import json
+# from quickvote import actions
+from quickvote.actions import User
 from asgiref.sync import async_to_sync
-from quickvote.actions import Actions, User
 from channels.generic.websocket import WebsocketConsumer
+from quickvote.actions import Actions
 
 
 class RoomConsumer(WebsocketConsumer):
@@ -17,7 +19,7 @@ class RoomConsumer(WebsocketConsumer):
             self.actions.connect_room(self.username, self.room_name)
         else:
             self.actions.create_room_for_users(self.room_name, "Theme",
-                                               users=[User(self.username, self.room_name, admin=True)])
+                                          users=[User(self.username, self.room_name, admin=True)])
 
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
@@ -30,16 +32,28 @@ class RoomConsumer(WebsocketConsumer):
 
     def disconnect(self, close_code):
         # Leave room group
+        self.actions.disconnect_room(self.room_name, self.username)
+
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name, {'type': 'update_room'}
+        )
         async_to_sync(self.channel_layer.group_discard)(
             self.room_group_name, self.channel_name
         )
-        self.actions.disconnect_room(self.room_name, self.username)
-        self.receive(text_data=json.dumps({'name': self.username, 'ready': False, 'vote': ''}))
 
     # Receive message from WebSocket
     def receive(self, text_data):
         data_json = json.loads(text_data)
         command = data_json.get('command')
+
+        if command == 'stop_or_run_room':
+            room = self.actions.scenery.get_room_by_number(self.room_name)
+            if data_json.get('admin'):
+                if room.started:
+                    self.actions.finalize_votes(self.room_name)
+                else:
+                    self.actions.start_votes(self.room_name)
+            command = 'update_room'
 
         # Send message to room group
         async_to_sync(self.channel_layer.group_send)(
@@ -47,18 +61,11 @@ class RoomConsumer(WebsocketConsumer):
             {'type': command, **data_json}
         )
 
+    def update_room(self, event):
+        room = self.actions.scenery.get_room_by_number(self.room_name)
+        self.send(text_data=json.dumps(room.serialize()))
+
     def update_user(self, event):
         room = self.actions.refresh_room(room=self.room_name, user=event)
         self.send(text_data=json.dumps(room.serialize()))
 
-    # Start vote from room group
-    def stop_or_run_room(self, event):
-        if event.get('admin'):
-            room = self.actions.scenery.get_room_by_number(self.room_name)
-
-            if room.started:
-                room.finish_server()
-            else:
-                room.start_server()
-
-            self.send(text_data=json.dumps(room.serialize()))
