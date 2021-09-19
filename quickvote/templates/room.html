@@ -167,7 +167,7 @@ var app = new Vue({
     created() {
         this.user_now.name = this.username;
         this.user_now.room = this.roomName;
-        
+
         // Room Socket
         this.roomSocket = new WebSocket(
             'ws://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
@@ -176,9 +176,6 @@ var app = new Vue({
             this.room = JSON.parse(e.data);
             this.users = this.room.users;
             this.user_now = this.users.filter((value) => { return value.name == this.username })[0];
-            console.log('Recebido:');
-            console.log(JSON.parse(e.data));
-            console.log('Recebido acima:');
         };
 
         // Chat Socket
@@ -229,9 +226,11 @@ var app = new Vue({
         
         // WebSockets Functions 
         sendMessage() {
-            this.chatSocket.send(JSON.stringify({
-                'name': this.username, 'message': this.message
-            }));
+            if (this.message.length > 0){
+                this.chatSocket.send(JSON.stringify({
+                    'name': this.username, 'message': this.message
+                }));
+            }
             this.message = '';
         },
         voted(user) {
@@ -251,7 +250,6 @@ var app = new Vue({
             if (this.users.filter((value) => { return !value.ready }).length == 0){
                 this.user_now.command = 'stop_or_run_room';
                 this.roomSocket.send(JSON.stringify(this.user_now));
-                // this.room.started = true;
             }
             else{ 
                 // alert('Existem jogadores que ainda não estão prontos!') 

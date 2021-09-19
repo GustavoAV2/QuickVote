@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="chat-message">
-        <input id="chat-message-input" type="text" v-model="message">
-        <button class="btn btn-info" @click="sendMessage()">Enviar</button>
+        <input id="chat-message-input"  v-on:keyup.13="sendMessage()" type="text" v-model="message">
+        <button id="chat-button-input" class="btn btn-info" @click="sendMessage()">Enviar</button>
     </div>
 </div>
