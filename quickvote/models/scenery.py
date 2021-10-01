@@ -24,6 +24,6 @@ class Scenery:
     def serialize(self):
         return {
             'rooms': [
-                room.serialize() for room in self.rooms
+                room.serialize_protected() for room in self.rooms
             ]
         }
