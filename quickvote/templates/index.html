@@ -98,7 +98,7 @@
             if (this.validations()){
                 this.room.objects = this.objects;
                 this.room.type = this.type;
-                axios.post('https://quickvote-django.herokuapp.comapi/api/', this.room).then(response =>{
+                axios.post('https://quickvote-django.herokuapp.com/api/', this.room).then(response =>{
                     const room = response.data;
                     window.location.pathname = '/' + room.room + '/' + this.user.name + '/';
                 }).
@@ -109,10 +109,9 @@
         },
 
         enterServer(){
-            axios.get(`https://quickvote-django.herokuapp.comapi/api/?room=${this.user.room}`).then(response =>{
+            axios.get(`https://quickvote-django.herokuapp.com/api/?room=${this.user.room}`).then(response =>{
                 const room = response.data;
 
-                debugger
                 if (room){
                     var equal_users = room.users.filter(value => {
                         if (value.name == this.user.name){return true}
