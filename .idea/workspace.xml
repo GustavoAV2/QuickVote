@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating API">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickvote/templates/form_enter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/YT-Django-Heroku-Deploy-Channels-Daphne.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QuickVote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/scenery.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/scenery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/user.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Merge with develop">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +193,8 @@
     <MESSAGE value="Adding ideia" />
     <MESSAGE value=".ideia" />
     <MESSAGE value="Creating API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating API" />
+    <MESSAGE value="Merge with develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge with develop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
