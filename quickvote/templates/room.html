@@ -66,6 +66,8 @@
                                 <nav class="tm-black-bg tm-drinks-nav">
                                     <ul>
                                         <li>
+                                            <h6 style="text-align: center; color: white;">[room.theme]</h6>
+
                                             <template v-if="!room.started && winner">
                                                 <!-- <a class="tm-tab-link active"></a> -->
                                                 <h6>Vencedor: <strong style="color:rgb(89, 231, 89);">[winner]</strong>
@@ -77,8 +79,7 @@
                                             </template>
 
                                             <template v-if="!room.started && !winner">
-                                                <h6 style="font-size:16px;">Assim que a votação for iniciada</h6>
-                                                <h6 style="font-size:16px;">clique nos usuários para votar!</h6>
+                                                <h6 style="font-size:13px;">Assim que a votação for iniciada clique nos usuários para votar!</h6>
                                             </template>
                                         </li>
                                     </ul>
@@ -91,7 +92,11 @@
                                                 <div class="tm-black-bg tm-list-item-text" @click="voted(obj.name)">
                                                     <h3 class="tm-list-item-name">
                                                         [toTitleCase(obj.name)]
+                                                        <span v-if="room.started" class="tm-list-item-price">
+                                                            [obj.number_of_votes]
+                                                        </span>
                                                     </h3>
+
                                                     <p class="tm-list-item-description">[obj.description]</p>
                                                 </div>
                                             </div>
@@ -101,6 +106,10 @@
                                             <div class="tm-list-item" v-for="user in users" :key="user.name">
                                                 <div class="tm-black-bg tm-list-item-text" @click="voted(user.name)">
                                                     <h3 class="tm-list-item-name">[toTitleCase(user.name)]
+                                                        <span v-if="room.started" class="tm-list-item-price">
+                                                            [user.number_of_votes]
+                                                        </span>
+
                                                         <span v-if="user.ready && !room.started"
                                                             class="tm-list-item-price">
                                                             Pronto
@@ -142,12 +151,28 @@ var app = new Vue({
         roomName: JSON.parse(document.getElementById('room-name').textContent),
         message: "",
         messages: [
-            { name: 'Quick Vote', message: 'Seja bem vindo!', time: '' }
+            { 
+                name: 'Quick Vote', 
+                message: 'Seja bem vindo!', 
+                time: '' 
+            },
+            { 
+                name: 'Quick Vote', 
+                message: 'Quando estiver preparado para a votação clique no botão "Pronto"!', 
+                time: '' 
+            },
+            { 
+                name: 'Quick Vote', 
+                message: 'Após a votação começar, clique em qualquer item a direita para votar nele.', 
+                time: '' 
+            }
         ],
         users: [],
         room: {
+            theme: '',
             started: false,
-            type: 'users'
+            type: '',
+            users: []
         },
         roomSocket: null,
         chatSocket: null,
@@ -223,7 +248,7 @@ var app = new Vue({
             }
             this.winner = winner;
         },
-        
+
         // WebSockets Functions 
         sendMessage() {
             if (this.message.length > 0){

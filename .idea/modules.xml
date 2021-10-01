@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/YT-Django-Heroku-Deploy-Channels-Daphne.iml" filepath="$PROJECT_DIR$/.idea/YT-Django-Heroku-Deploy-Channels-Daphne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/QuickVote.iml" filepath="$PROJECT_DIR$/.idea/QuickVote.iml" />
     </modules>
   </component>
 </project>

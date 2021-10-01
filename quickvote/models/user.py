@@ -44,3 +44,8 @@ class User:
             'vote': self.vote,
             'number_of_votes': self.number_of_votes
         }
+
+    def serialize_protected(self):
+        return {
+            'name': self.name
+        }

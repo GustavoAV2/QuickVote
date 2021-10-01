@@ -1,25 +1,19 @@
 # chat/consumers.py
 import json
-# from quickvote import actions
-from quickvote.actions import User
+from quickvote import actions
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from quickvote.actions import Actions
 
 
 class RoomConsumer(WebsocketConsumer):
-    actions = Actions()
 
     def connect(self):
         self.username = self.scope['url_route']['kwargs']['username']
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'room_%s' % self.room_name
 
-        if self.actions.scenery.if_room_exists(self.room_name):
-            self.actions.connect_room(self.username, self.room_name)
-        else:
-            self.actions.create_room_for_users(self.room_name, "Theme",
-                                          users=[User(self.username, self.room_name, admin=True)])
+        if actions.scenery.if_room_exists(self.room_name):
+            actions.connect_room(self.username, self.room_name)
 
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
@@ -32,7 +26,7 @@ class RoomConsumer(WebsocketConsumer):
 
     def disconnect(self, close_code):
         # Leave room group
-        self.actions.disconnect_room(self.room_name, self.username)
+        actions.disconnect_room(self.room_name, self.username)
 
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name, {'type': 'update_room'}
@@ -47,12 +41,12 @@ class RoomConsumer(WebsocketConsumer):
         command = data_json.get('command')
 
         if command == 'stop_or_run_room':
-            room = self.actions.scenery.get_room_by_number(self.room_name)
+            room = actions.scenery.get_room_by_number(self.room_name)
             if data_json.get('admin'):
                 if room.started:
-                    self.actions.finalize_votes(self.room_name)
+                    actions.finalize_votes(self.room_name)
                 else:
-                    self.actions.start_votes(self.room_name)
+                    actions.start_votes(self.room_name)
             command = 'update_room'
 
         # Send message to room group
@@ -62,10 +56,10 @@ class RoomConsumer(WebsocketConsumer):
         )
 
     def update_room(self, event):
-        room = self.actions.scenery.get_room_by_number(self.room_name)
+        room = actions.scenery.get_room_by_number(self.room_name)
         self.send(text_data=json.dumps(room.serialize()))
 
     def update_user(self, event):
-        room = self.actions.refresh_room(room=self.room_name, user=event)
+        room = actions.refresh_room(room=self.room_name, user=event)
         self.send(text_data=json.dumps(room.serialize()))
 

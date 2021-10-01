@@ -33,10 +33,14 @@ class RoomInterface:
 
     def add_user_on_the_server(self, user: User):
         if not self._started:
-            if not self.if_name_exists_in_server(name=user.name):
+            if len(self.users) > 0:
+                if not self.if_name_exists_in_server(name=user.name):
+                    self.users.append(user)
+            else:
+                user.change_administrator_status()
                 self.users.append(user)
         else:
-            raise IOError()
+            return None
 
     def get_user_by_name(self, name):
         for user in self.users:
@@ -76,6 +80,13 @@ class RoomInterface:
     def _refresh_votes(self, *args, **kwargs):
         ...
 
+    def serialize_protected(self):
+        return {
+            'room': self.room,
+            'type': self.type,
+            'users': [user.serialize_protected() for user in self.users],
+        }
+
 
 class Room(RoomInterface):
     def __init__(self, theme: str, password: str, number: str, users: List[User] = None, token=None):
@@ -101,6 +112,7 @@ class Room(RoomInterface):
         return {
             'room': self.room,
             'type': self.type,
+            'theme': self.theme,
             'started': self._started,
             'users': [user.serialize() for user in self.users]
         }
@@ -109,6 +121,7 @@ class Room(RoomInterface):
         return {
             'room': self.room,
             'type': self.type,
+            'theme': self.theme,
             'token': str(self.token),
             'started': self._started,
             'users': [user.serialize() for user in self.users],
@@ -141,6 +154,7 @@ class RoomObjects(RoomInterface):
         return {
             'room': self.room,
             'type': self.type,
+            'theme': self.theme,
             'started': self._started,
             'users': [user.serialize() for user in self.users],
             'objects': [obj.serialize() for obj in self.objects],
@@ -150,6 +164,7 @@ class RoomObjects(RoomInterface):
         return {
             'room': self.room,
             'type': self.type,
+            'theme': self.theme,
             'token': str(self.token),
             'started': self._started,
             'users': [user.serialize() for user in self.users],

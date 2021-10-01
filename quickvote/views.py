@@ -1,4 +1,3 @@
-from django.views.generic import TemplateView
 from django.utils.safestring import mark_safe
 from django.views.generic import TemplateView
 

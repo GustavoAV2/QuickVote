@@ -18,7 +18,6 @@ class Actions:
     def create_room_for_users(self, room: str, theme: str, users=[], password="") -> Room:
         try:
             token = uuid.uuid4()
-            number_room = self._create_number_of_room()
             actual_server = self.scenery.adding_server(Room(theme=theme, number=room,
                                                             token=token, password=password))
             if users:
@@ -28,15 +27,16 @@ class Actions:
         except KeyError:
             raise IOError()
 
-    def create_room_for_objects(self, room) -> Room:
+    def create_room_for_objects(self, room: str, theme: str, objects, users=[], password="") -> Room:
         try:
             token = uuid.uuid4()
-            number_room = self._create_number_of_room()
             actual_server = self.scenery.adding_server(
                 RoomObjects(
-                    theme=room.theme, number=number_room,  objects=room.objects,
-                    token=token, password=room.password
+                    theme=theme, number=room, objects=objects, token=token, password=password
                 ))
+            if users:
+                for user in users:
+                    actual_server.add_user_on_the_server(user)
             return actual_server
         except KeyError:
             raise IOError()
