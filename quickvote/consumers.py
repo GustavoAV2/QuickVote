@@ -2,15 +2,16 @@
 import json
 from quickvote import actions
 from asgiref.sync import async_to_sync
+from urllib.parse import unquote
 from channels.generic.websocket import WebsocketConsumer
 
 
 class RoomConsumer(WebsocketConsumer):
 
     def connect(self):
-        self.username = self.scope['url_route']['kwargs']['username']
-        self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'room_%s' % self.room_name
+        self.username = unquote(self.scope['url_route']['kwargs']['username'])
+        self.room_name = unquote(self.scope['url_route']['kwargs']['room_name'])
+        self.room_group_name = 'room_%s' % self.room_name.replace(' ', '_')
 
         if actions.scenery.if_room_exists(self.room_name):
             actions.connect_room(self.username, self.room_name)

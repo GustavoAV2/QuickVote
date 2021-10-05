@@ -5,6 +5,7 @@
 
 {% include 'header_menu.html' %}
 
+{{ api_url|json_script:"api-url" }}
 
 <div id="home-page">
     <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -98,7 +99,9 @@
             if (this.validations()){
                 this.room.objects = this.objects;
                 this.room.type = this.type;
-                axios.post('https://quickvote-django.herokuapp.com/api/', this.room).then(response =>{
+
+                var api_url = JSON.parse(document.getElementById('api-url').textContent);
+                axios.post(api_url, this.room).then(response =>{
                     const room = response.data;
                     window.location.pathname = '/' + room.room + '/' + this.user.name + '/';
                 }).
@@ -109,7 +112,10 @@
         },
 
         enterServer(){
-            axios.get(`https://quickvote-django.herokuapp.com/api/?room=${this.user.room}`).then(response =>{
+            var room = this.user.room;
+            var api_url = JSON.parse(document.getElementById('api-url').textContent);
+
+            axios.get(api_url + `?room=${room}`).then(response =>{
                 const room = response.data;
 
                 if (room){
@@ -124,9 +130,7 @@
                         this.generateModal('Esse nome de usuário já está sendo usado!');
                     }
                 }
-                else{ 
-                    this.generateModal('Sala não existe!'); 
-                }
+                else{ this.generateModal('Sala não existe!'); }
             })
         },
 
