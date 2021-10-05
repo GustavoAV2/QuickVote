@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating API routes and Viewset">
-      <change afterPath="$PROJECT_DIR$/.idea/QuickVote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/YT-Django-Heroku-Deploy-Channels-Daphne.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/scenery.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/scenery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/views.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Adding environment variables to settings.py and context">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,8 +105,32 @@
       <option name="project" value="LOCAL" />
       <updated>1633095664719</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Strings Correction for ASCII">
+      <created>1633456992732</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1633456992732</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fixing url path">
+      <created>1633457022143</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633457022143</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Adding environment variables to settings.py and context">
+      <created>1633457077280</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1633457077280</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -137,7 +154,10 @@
     <MESSAGE value="Refactoring HTML from room.html and Script" />
     <MESSAGE value="Refactoring room.py" />
     <MESSAGE value="Creating API routes and Viewset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating API routes and Viewset" />
+    <MESSAGE value="Strings Correction for ASCII" />
+    <MESSAGE value="Fixing url path" />
+    <MESSAGE value="Adding environment variables to settings.py and context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding environment variables to settings.py and context" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

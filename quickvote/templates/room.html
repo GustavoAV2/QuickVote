@@ -9,6 +9,8 @@
     <section class="about section voting" id="feature">
         {{ room_name|json_script:"room-name" }}
         {{ username|json_script:"username" }}
+        {{ url_socket_room|json_script:"room-ws-url" }}
+        {{ url_socket_chat|json_script:"chat-ws-url" }}
 
         <template v-if="!loading">
             <div class="tm-container">
@@ -192,11 +194,11 @@ var app = new Vue({
     created() {
         this.user_now.name = this.username;
         this.user_now.room = this.roomName;
+        var room_url = JSON.parse(document.getElementById('room-ws-url').textContent);
+        var route_ws = encodeURI(room_url + this.roomName + '/' + this.username + '/');
 
         // Room Socket
-        this.roomSocket = new WebSocket(
-            'ws://' + window.location.host + '/ws/room/' + this.roomName + '/' + this.username + '/'
-        );
+        this.roomSocket = new WebSocket(route_ws);
         this.roomSocket.onmessage = e => {
             this.room = JSON.parse(e.data);
             this.users = this.room.users;
@@ -204,7 +206,9 @@ var app = new Vue({
         };
 
         // Chat Socket
-        this.chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + this.roomName + '/');
+        var chat_url = JSON.parse(document.getElementById('chat-ws-url').textContent);
+
+        this.chatSocket = new WebSocket(chat_url + this.roomName + '/');
         this.chatSocket.onmessage = e => {
             const data = JSON.parse(e.data);
             this.messages.push({
