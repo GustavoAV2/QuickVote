@@ -128,6 +128,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+ROOM_SOCKET_URL = os.environ.get('SOCKET_ROOM_URL', 'ws://127.0.0.1:8000/ws/room/')
+# wss://quickvote-django.herokuapp.com/ws/room/
+CHAT_SOCKET_URL = os.getenv('SOCKET_CHAT_URL', 'ws://127.0.0.1:8000/ws/chat/')
+# wss://quickvote-django.herokuapp.com/ws/chat/
+API_URL = os.getenv('API_URL', 'http://127.0.0.1:8000/api/')
+# https://quickvote-django.herokuapp.com/api/
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
 
 ASGI_APPLICATION = "core.routing.application"
