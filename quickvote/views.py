@@ -32,6 +32,11 @@ class RoomView(TemplateView):
         context['username'] = mark_safe(self.kwargs.get('username'))
         context['url_socket_room'] = ROOM_SOCKET_URL
         context['url_socket_chat'] = CHAT_SOCKET_URL
+        context['tutorial'] = """
+        \tSeja bem vindo!\n
+        \t* Quando estiver preparado para a votação clique no botão 'Pronto'!\n
+        \t* Após a votação começar, clique em qualquer item a direita para votar nele.
+        """
         return context
 
     def get(self, request, *args, **kwargs):
