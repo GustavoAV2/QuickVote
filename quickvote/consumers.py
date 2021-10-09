@@ -12,14 +12,13 @@ class RoomConsumer(WebsocketConsumer):
         self.username = unquote(self.scope['url_route']['kwargs']['username'])
         self.room_name = unquote(self.scope['url_route']['kwargs']['room_name'])
         self.room_group_name = 'room_%s' % self.room_name.replace(' ', '_')
+        password = unquote(self.scope['url_route']['kwargs']['password'])
 
         if actions.scenery.if_room_exists(self.room_name):
-            actions.connect_room(self.username, self.room_name)
+            actions.connect_room(self.username, self.room_name, password=password)
 
         # Join room group
-        async_to_sync(self.channel_layer.group_add)(
-            self.room_group_name, self.channel_name
-        )
+        async_to_sync(self.channel_layer.group_add)(self.room_group_name, self.channel_name)
         self.accept()
         self.receive(text_data=json.dumps(
             {'command': 'update_user', 'name': self.username, 'ready': False, 'vote': ''}
