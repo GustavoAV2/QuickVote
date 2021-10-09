@@ -7,8 +7,10 @@
 
 <div id="room">
     <section class="about section voting" id="feature">
-        {{ room_name|json_script:"room-name" }}
+        {{ tutorial|json_script:"tutorial" }}
         {{ username|json_script:"username" }}
+        {{ password|json_script:"password" }}
+        {{ room_name|json_script:"room-name" }}
         {{ url_socket_room|json_script:"room-ws-url" }}
         {{ url_socket_chat|json_script:"chat-ws-url" }}
 
@@ -20,11 +22,16 @@
                         <div class="tm-left-inner">
 
                             <div class="tm-site-header size-header">
-                                <h6>Participantes: [users.length]</h6>
-                                <h6 v-if="numUsersReady.not_ready">Em preparação: [numUsersReady.not_ready]</h6>
-                                <h6 style="color:rgb(89, 231, 89);" v-if="!numUsersReady.not_ready && !room.started">
-                                    Todos estão prontos!
-                                </h6>
+
+                                <div class="info-flex">
+                                    <h6 class="lbl-info">Participantes: [users.length]</h6>
+                                    <p class="lbl-info" v-if="numUsersReady.not_ready">Em preparação: [numUsersReady.not_ready]</p>
+                                    <p style="color:rgb(89, 231, 89);" class="lbl-info"
+                                       v-if="!numUsersReady.not_ready && !room.started">
+                                        Todos estão prontos!
+                                    </p>
+                                </div>
+
                                 <nav class="tm-site-nav">
                                     <ul class="tm-site-nav-ul">
                                         <template v-if="user_now.admin">
@@ -48,14 +55,14 @@
                                                 </a>
                                                 <a class="ready-button" v-else @click="readyChange()">
                                                     <i class="fas fa-mug-hot tm-page-link-icon"></i>
-                                                    <span id="ready">Aguardar</span>
+                                                    <span id="ready-large">Aguardar</span>
                                                 </a>
                                             </li>
                                         </template>
                                     </ul>
                                 </nav>
                             </div>
-
+        
                             {% include 'chat.html' %}
 
                         </div>
@@ -130,7 +137,6 @@
             </div>
 
         </template>
-
         <template v-else>
             <div class="container">
                 <div class="spinner-border text-info" role="status">
@@ -141,6 +147,25 @@
 
     </section>
     </template>
+
+    <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado da votação:</h5>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title">[error]</h3>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -151,24 +176,10 @@ var app = new Vue({
     data: {
         username: JSON.parse(document.getElementById('username').textContent),
         roomName: JSON.parse(document.getElementById('room-name').textContent),
+        password: JSON.parse(document.getElementById('password').textContent),
         message: "",
-        messages: [
-            { 
-                name: 'Quick Vote', 
-                message: 'Seja bem vindo!', 
-                time: '' 
-            },
-            { 
-                name: 'Quick Vote', 
-                message: 'Quando estiver preparado para a votação clique no botão "Pronto"!', 
-                time: '' 
-            },
-            { 
-                name: 'Quick Vote', 
-                message: 'Após a votação começar, clique em qualquer item a direita para votar nele.', 
-                time: '' 
-            }
-        ],
+        messages: [],
+        lastMessages: 0,
         users: [],
         room: {
             theme: '',
@@ -195,7 +206,7 @@ var app = new Vue({
         this.user_now.name = this.username;
         this.user_now.room = this.roomName;
         var room_url = JSON.parse(document.getElementById('room-ws-url').textContent);
-        var route_ws = encodeURI(room_url + this.roomName + '/' + this.username + '/');
+        var route_ws = encodeURI(room_url + this.roomName + '/' + this.username + '/' + this.password);
 
         // Room Socket
         this.roomSocket = new WebSocket(route_ws);
@@ -216,6 +227,7 @@ var app = new Vue({
                 message: data.message,
                 time: this.getTimeStr()
             });
+            this.scrollChat();
         };
         this.chatSocket.onclose = function (e) { };
     },
@@ -250,7 +262,27 @@ var app = new Vue({
                     last_best_score = items[index].number_of_votes;
                 }
             }
+            
             this.winner = winner;
+            if (this.winner){
+                this.generateModal('Vencedor: ' + this.winner);
+            }
+            else{
+                this.generateModal('Não houve vencedor')
+            }
+        },
+        scrollChat(){
+            var chat = document.getElementById('chat');
+            chat.scrollTop = chat.scrollHeight;
+        },
+
+        // Error Messages
+        generateModal(message){
+            this.error = message;
+            $("#errorModal").modal();
+        },
+        closeModal(){
+            $("#errorModal").modal('toggle');
         },
 
         // WebSockets Functions 
@@ -280,8 +312,8 @@ var app = new Vue({
                 this.user_now.command = 'stop_or_run_room';
                 this.roomSocket.send(JSON.stringify(this.user_now));
             }
-            else{ 
-                // alert('Existem jogadores que ainda não estão prontos!') 
+            else{
+                this.generateModal('Existem jogadores que ainda não estão prontos!');
             }
         },
         finish_votes() { 
@@ -292,9 +324,6 @@ var app = new Vue({
     },
 
     watch: {
-        // ['user_now.ready']() {
-        //     this.user_now.ready ? alert('Você está preparado!') : alert('Você não está preparado!')
-        // },
         ['room.started']() {
             if (!this.room.started) { this.whoIsTheWinner(); }
         },
@@ -309,7 +338,6 @@ var app = new Vue({
             const not_ready = this.users.filter((value) => { return value.ready ? false : true });
             return { 'ready': ready.length, 'not_ready': not_ready.length };
         },
-
         blockedStarted() {
             return this.numUsersReady['ready'] == this.users.length ? false : true
         }
@@ -330,9 +358,6 @@ var app = new Vue({
     }
     .tm-site-header{
         height: 100%;
-    }
-    .size-header{
-        padding: 15px;
     }
     .tm-page-nav-item{
         padding-bottom: 1%;

@@ -9,16 +9,16 @@ class Scenery:
         self.rooms.append(room)
         return room
 
-    def if_room_exists(self, number: str) -> bool:
+    def if_room_exists(self, room_name: str) -> bool:
         for room in self.rooms:
-            if room.room == number:
+            if room.room == room_name:
                 return True
         return False
 
-    def get_room_by_number(self, number: str) -> RoomObjects or Room:
-        if self.if_room_exists(number=number):
+    def get_room_by_number(self, room: str) -> RoomObjects or Room:
+        if self.if_room_exists(room_name=room):
             for server in self.rooms:
-                if server.room == number:
+                if server.room == room:
                     return server
 
     def serialize(self):

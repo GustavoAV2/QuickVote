@@ -1,59 +1,58 @@
-import uuid
 from typing import Dict
-from random import randint
+from cryptography.fernet import Fernet
 from quickvote.models.user import User
 from quickvote.models.scenery import Scenery
 from quickvote.models.room import Room, RoomObjects
+from secrets import compare_digest
 
 
 class Actions:
     scenery = Scenery()
 
-    def _create_number_of_room(self):
-        while True:
-            room_number = str(randint(100000, 999999))
-            if not self.scenery.if_room_exists(room_number):
-                return room_number
+    def __init__(self):
+        key = Fernet.generate_key()
+        self.cryptography = Fernet(key)
 
     def create_room_for_users(self, room: str, theme: str, users=[], password="") -> Room:
-        try:
-            token = uuid.uuid4()
-            actual_server = self.scenery.adding_server(Room(theme=theme, number=room,
-                                                            token=token, password=password))
-            if users:
-                for user in users:
-                    actual_server.add_user_on_the_server(user)
-            return actual_server
-        except KeyError:
-            raise IOError()
+        encrypt_password = self.cryptography.encrypt(password.encode()).decode()
+        actual_server = self.scenery.adding_server(Room(theme=theme, number=room, password=encrypt_password))
+        if users:
+            for user in users:
+                actual_server.add_user_on_the_server(user)
+        return actual_server
 
     def create_room_for_objects(self, room: str, theme: str, objects, users=[], password="") -> Room:
-        try:
-            token = uuid.uuid4()
-            actual_server = self.scenery.adding_server(
-                RoomObjects(
-                    theme=theme, number=room, objects=objects, token=token, password=password
-                ))
-            if users:
-                for user in users:
-                    actual_server.add_user_on_the_server(user)
-            return actual_server
-        except KeyError:
-            raise IOError()
+        encrypt_password = self.cryptography.encrypt(password.encode()).decode()
+        actual_server = self.scenery.adding_server(
+            RoomObjects(theme=theme, number=room, objects=objects, password=encrypt_password)
+            )
+        if users:
+            for user in users:
+                actual_server.add_user_on_the_server(user)
+        return actual_server
 
-    def connect_room(self, username: str, room: str, admin: bool = False) -> Room:
+    def connect_room(self, username: str, room: str, password: str, admin: bool = False) -> Room:
         if self.scenery.if_room_exists(room):
-            actual_server: Room = self.scenery.get_room_by_number(room)
-            user = User(name=username, room=room, admin=admin)
-            actual_server.add_user_on_the_server(user)
-            return actual_server
-        else:
-            raise IOError()
+            if self.login(room, password):
+                actual_server: Room = self.scenery.get_room_by_number(room)
+                user = User(name=username, room=room, admin=admin)
+                actual_server.add_user_on_the_server(user)
+                return actual_server
 
     def disconnect_room(self, room: str, name_user: str):
         actual_server: Room = self.scenery.get_room_by_number(room)
         actual_server.remove_user_from_server(name_user)
         return actual_server
+
+    def login(self, room: str, password: str):
+        actual_server = self.scenery.get_room_by_number(room)
+        password_correct = self.cryptography.decrypt(actual_server.password.encode()).decode()
+        if password[-2:] == '==':
+            password = self.cryptography.decrypt(password.encode()).decode()
+
+        if compare_digest(password_correct, password):
+            return True
+        return False
 
     def start_votes(self, room: str) -> Room:
         actual_server = self.scenery.get_room_by_number(room)

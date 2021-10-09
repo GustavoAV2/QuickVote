@@ -1,18 +1,15 @@
-import uuid
 from typing import List, Dict
 from quickvote.models.user import User
 from quickvote.models.object import Object
 
 
 class RoomInterface:
-    def __init__(self, theme: str, number: str, password: str, users: List[User] = None,
-                 token=None, type_room: str = "objects"):
+    def __init__(self, theme: str, number: str, password: str, users: List[User] = None, type_room: str = "objects"):
         if users is None:
             users = []
         self.theme = theme
         self.type = type_room
         self.password = password
-        self.token = token if token else uuid.uuid4()
         self.room = number
         self._started = False
         self.users = users
@@ -89,8 +86,8 @@ class RoomInterface:
 
 
 class Room(RoomInterface):
-    def __init__(self, theme: str, password: str, number: str, users: List[User] = None, token=None):
-        super().__init__(theme=theme, number=number, password=password, users=users, token=token, type_room="users")
+    def __init__(self, theme: str, password: str, number: str, users: List[User] = None):
+        super().__init__(theme=theme, number=number, password=password, users=users, type_room="users")
 
     def _refresh_votes(self):
         self._clear()
@@ -122,15 +119,15 @@ class Room(RoomInterface):
             'room': self.room,
             'type': self.type,
             'theme': self.theme,
-            'token': str(self.token),
             'started': self._started,
+            'password': self.password,
             'users': [user.serialize() for user in self.users],
         }
 
 
 class RoomObjects(RoomInterface):
-    def __init__(self, theme: str, password: str, number: str, objects: List, users: List[User] = None, token=None):
-        super().__init__(theme=theme, password=password, number=number, users=users, token=token)
+    def __init__(self, theme: str, password: str, number: str, objects: List, users: List[User] = None):
+        super().__init__(theme=theme, password=password, number=number, users=users)
         if objects:
             self.objects = [Object(obj.get('name'), 0, obj.get('description')) for obj in objects]
 
@@ -165,8 +162,8 @@ class RoomObjects(RoomInterface):
             'room': self.room,
             'type': self.type,
             'theme': self.theme,
-            'token': str(self.token),
             'started': self._started,
+            'password': self.password,
             'users': [user.serialize() for user in self.users],
             'objects': [obj.serialize() for obj in self.objects],
         }

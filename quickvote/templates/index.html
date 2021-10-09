@@ -33,8 +33,8 @@
 
                         <h6 data-aos="fade-up" data-aos-delay="140">Votações rápidas!</h6>
                         <h1 class="text-white" data-aos="fade-up" data-aos-delay="180">Crie salas para votar ou fazer eleições!</h1>
-                        <a  href="#about" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
-                        <a href="#feature" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
+                        <a  href="#create" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
+                        <a href="#enter" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
 
                     </div>
                 </div>
@@ -62,10 +62,9 @@
         table: false,
         objects: [],
         error: '',
-        object: {
-            'name': '', 'description': ''
-        },
+        object: { 'name': '', 'description': '' },
         room: {
+            'username': '',
             'room': '', 
             'theme': '',
             'objects': [],
@@ -77,8 +76,6 @@
             'room': '',
             'vote':'',
             'password': '',
-            'ready': false,
-            'voted_of_numbers': 0,
             'admin': false,
         }
       },
@@ -103,7 +100,7 @@
                 var api_url = JSON.parse(document.getElementById('api-url').textContent);
                 axios.post(api_url, this.room).then(response =>{
                     const room = response.data;
-                    window.location.pathname = '/' + room.room + '/' + this.user.name + '/';
+                    window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
                 }).
                 catch(() => {
                     this.generateModal('Já existe uma sala com esse nome!');
@@ -115,22 +112,22 @@
             var room = this.user.room;
             var api_url = JSON.parse(document.getElementById('api-url').textContent);
 
-            axios.get(api_url + `?room=${room}`).then(response =>{
+            axios.get(api_url + `?room=${room}&password=${this.user.password}`).then(response =>{
                 const room = response.data;
-
                 if (room){
-                    var equal_users = room.users.filter(value => {
-                        if (value.name == this.user.name){return true}
-                        else{return false}
-                    })
-                    if (equal_users.length == 0){
-                        window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/';
+                    if (room.password){
+                        var equal_users = room.users.filter(value => {
+                            if (value.name == this.user.name){return true}
+                            else{return false}
+                        })
+                        if (equal_users.length == 0){
+                            window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/' + room.password;
+                        }
+                        else{ this.generateModal('Esse nome de usuário já está sendo usado!'); }
                     }
-                    else{ 
-                        this.generateModal('Esse nome de usuário já está sendo usado!');
-                    }
+                    else{ this.generateModal('Senha incorreta!'); }
                 }
-                else{ this.generateModal('Sala não existe!'); }
+                else{ this.generateModal('Esta sala não existe!'); }
             })
         },
 
@@ -184,7 +181,7 @@
         },
         generateModal(message){
             this.error = message;
-            $("#errorModal").modal();;
+            $("#errorModal").modal();
         },
         closeModal(){
             $("#errorModal").modal('toggle');

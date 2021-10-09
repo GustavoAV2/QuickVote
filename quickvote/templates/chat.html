@@ -2,15 +2,17 @@
 <link rel="stylesheet" href="{% static 'css/chat.css' %}">
 
 <div class="container chat-top">
-    <div class="chat">
+    <div id="chat">
         <div v-for="msg in messages">
-            <div v-if="msg.name != username" class="container bottom-1px darker">
+            <div v-if="msg.name != username" class="container size-message darker">
                 <h3 class="right">[msg.name]</h3>
                 <p class="message">[msg.message]</p>
                 <span class="time-left">[msg.time]</span>
             </div>
-            <div v-if="msg.name == username" class="container bottom-1px">
-                <h3 class="right">[msg.name]</h3>
+            <div v-if="msg.name == username" class="container size-message white">
+                <!-- <div class="div-left">
+                    <h3 class="right">[msg.name]</h3>
+                </div> -->
                 <p class="message">[msg.message]</p>
                 <span class="time-right">[msg.time]</span>
             </div>

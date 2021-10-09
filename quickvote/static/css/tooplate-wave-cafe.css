@@ -8,6 +8,15 @@ https://www.tooplate.com/view/2121-wave-cafe
 
 html { scroll-behavior: auto; }
 
+.info-flex{
+    display:flex;
+    justify-content: space-around;
+}
+.lbl-info{
+    margin:0px;
+    padding:0px;
+    font-size: 1.2rem;
+}
 .voting{
     background-image: url('../images/Midnight_City.jpg');
     background-size: cover;
@@ -65,7 +74,7 @@ h2 { margin-top: 0; }
     color: white;
     width: 100%;
     height: 160px;
-    border-radius: 14px;
+    border-radius: 14px 14px 0px 0px;
     background-color: rgba(0,0,0,0.6);
     display: flex;
     flex-direction: column;
@@ -106,29 +115,34 @@ h2 { margin-top: 0; }
 #ready{
     color: rgb(89, 231, 89);
 }
+#ready-large{
+    color: rgb(89, 231, 89);
+    font-size: 1.2rem;
+}
 .ready-button {
     border: solid 2px rgb(89, 231, 89);
-    min-width: 180px;
+    min-width: 170px;
+    min-height: 70px;
     border-radius: 4px;
-    height: 80px;
     cursor: pointer;
-    background-color: none;
     display: flex;
     text-decoration: none;
-    align-items: center;      
-    font-size: 1.4rem;
+    align-items: center;
+    font-size: 1.2rem;
 }
 
 .init-button{
-    min-width: 180px;
-    border-radius: 4px;
-    height: 80px;
-    cursor: pointer;
     border: solid 2px #f13a11;
+    min-width: 170px;
+    min-height: 70px;
+    border-radius: 4px;
+    cursor: pointer;
     display: flex;
     text-decoration: none;
     align-items: center;   
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .init-button:hover,

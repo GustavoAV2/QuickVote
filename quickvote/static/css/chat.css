@@ -1,5 +1,5 @@
 /* -- Chat -- */
-.chat{
+#chat{
   overflow-y: auto;
   height: 300px;
   max-height: 100ch;
@@ -15,13 +15,16 @@
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 0px 0px 10px 10px;
 }
 /* Darker chat container */
 .darker {
+  border-radius: 0px 10px 10px 10px;
   border-color: #ccc;
   background-color: #ddd;
+}
+.white{
+  border-radius: 10px 0px 10px 10px;
 }
 /* Clear floats */
 .container::after {
@@ -32,11 +35,16 @@
 .right{
   padding: 0px;
   margin: 0px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+}
+.div-left{
+  display: flex;
+  justify-content: right;
 }
 .message{
   padding: 0px 0px 0px 0px;
   margin: 0px;
+  font-size: 1.1rem;
   overflow: hidden;
 }
 /* Style time text */
@@ -54,35 +62,34 @@
   margin-bottom: 0px;
 }
 .chat-message{
-    display: flex;
-    margin-top: 5%;
+  display: flex;
+  margin-top: 5%;
 }
 .chat-top{
-    max-height: 100%;
-    margin-top: 5%;
-    background-color: rgba(0,0,0,0.6);
-    border-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.6);
+  /* border-color: rgba(0,0,0,0.6); */
+  border-color: #171819;
+  padding: 0px 5px 5px 5px;
 }
-.bottom-1px{
-    padding: 0px 5px 0px 5px;
-    margin-bottom: 2px;
+.size-message{
+  padding: 0px 5px 0px 5px;
+  margin-bottom: 4px;
 }
-
 
 /* -- Chat Scroll -- */
 /* width */
-.chat::-webkit-scrollbar {
+#chat::-webkit-scrollbar {
   width: 10px;
 }
 /* Track */
-.chat::-webkit-scrollbar-track {
+#chat::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 /* Handle */
-.chat::-webkit-scrollbar-thumb {
+#chat::-webkit-scrollbar-thumb {
   background: #888;
 }
 /* Handle on hover */
-.chat::-webkit-scrollbar-thumb:hover {
+#chat::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
