@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring HTML and CSS">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring and creating login function">
       <change beforePath="$PROJECT_DIR$/quickvote/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/consumers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/routing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/fast_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/fast_login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +206,35 @@
       <option name="project" value="LOCAL" />
       <updated>1633737212079</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Installing new dependencies">
+      <created>1633809507412</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809507412</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adding password to routes">
+      <created>1633809543961</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809543961</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Adding login">
+      <created>1633809602502</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809602502</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Refactoring and creating login function">
+      <created>1633809619982</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809619982</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -233,7 +253,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Installing new dependencies" />
     <MESSAGE value="Creating global actions" />
     <MESSAGE value="Fixing action functions" />
     <MESSAGE value="Refactor consumer" />
@@ -253,7 +272,11 @@
     <MESSAGE value="Refactoring route" />
     <MESSAGE value="Creating new routes" />
     <MESSAGE value="Refactoring HTML and CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring HTML and CSS" />
+    <MESSAGE value="Installing new dependencies" />
+    <MESSAGE value="Adding password to routes" />
+    <MESSAGE value="Adding login" />
+    <MESSAGE value="Refactoring and creating login function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and creating login function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
