@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting variables">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring HTML and CSS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/static/css/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/chat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/consumers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/routing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/fast_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/fast_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_enter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/header_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/header_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/header_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/header_room.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +165,56 @@
       <option name="project" value="LOCAL" />
       <updated>1633457864396</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adding tutorial in context">
+      <created>1633737019501</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737019502</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Refactoring HTML, CSS and JavaScript">
+      <created>1633737069899</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737069900</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Refactoring HTML and CSS">
+      <created>1633737095379</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737095379</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Refactoring route">
+      <created>1633737121749</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737121749</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Creating new routes">
+      <created>1633737159187</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737159187</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Refactoring HTML and CSS">
+      <created>1633737204330</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737204330</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Refactoring HTML and CSS">
+      <created>1633737212079</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1633737212079</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -198,7 +248,12 @@
     <MESSAGE value="Merge from develop" />
     <MESSAGE value="Merge with develop" />
     <MESSAGE value="Deleting last_script.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleting last_script.html" />
+    <MESSAGE value="Adding tutorial in context" />
+    <MESSAGE value="Refactoring HTML, CSS and JavaScript" />
+    <MESSAGE value="Refactoring route" />
+    <MESSAGE value="Creating new routes" />
+    <MESSAGE value="Refactoring HTML and CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring HTML and CSS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
