@@ -442,6 +442,9 @@ https://www.tooplate.com/view/2119-gymso-fitness
   /*---------------------------------------
      CLASS               
   -----------------------------------------*/
+  .input-size{
+    margin-bottom: 7px;
+  }
   .login-margin{
     margin-left: 30%;
     margin-right: 30%;
