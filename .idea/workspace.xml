@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring and creating login function">
-      <change beforePath="$PROJECT_DIR$/quickvote/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/consumers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/fast_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/fast_login.html" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Removing token and creating password">
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +231,42 @@
       <option name="project" value="LOCAL" />
       <updated>1633809619982</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adding password to consumer">
+      <created>1633809678899</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809678899</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactoring HTML and JavaScript">
+      <created>1633809725670</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809725670</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Refactoring JavaScript">
+      <created>1633809758666</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809758666</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Creating Modal Div and refactoring JavaScript">
+      <created>1633809782032</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809782032</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Removing token and creating password">
+      <created>1633809808142</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633809808142</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -253,9 +285,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating global actions" />
-    <MESSAGE value="Fixing action functions" />
-    <MESSAGE value="Refactor consumer" />
     <MESSAGE value="Creating a form to enter and create a room" />
     <MESSAGE value="Refactoring HTML from index.html and script" />
     <MESSAGE value="Refactoring HTML from room.html and Script" />
@@ -276,7 +305,12 @@
     <MESSAGE value="Adding password to routes" />
     <MESSAGE value="Adding login" />
     <MESSAGE value="Refactoring and creating login function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and creating login function" />
+    <MESSAGE value="Adding password to consumer" />
+    <MESSAGE value="Refactoring HTML and JavaScript" />
+    <MESSAGE value="Refactoring JavaScript" />
+    <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
+    <MESSAGE value="Removing token and creating password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing token and creating password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

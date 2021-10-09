@@ -64,6 +64,7 @@
         error: '',
         object: { 'name': '', 'description': '' },
         room: {
+            'username': '',
             'room': '', 
             'theme': '',
             'objects': [],
@@ -99,7 +100,7 @@
                 var api_url = JSON.parse(document.getElementById('api-url').textContent);
                 axios.post(api_url, this.room).then(response =>{
                     const room = response.data;
-                    window.location.pathname = '/' + room.room + '/' + this.user.name + '/' + room.password;
+                    window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
                 }).
                 catch(() => {
                     this.generateModal('Já existe uma sala com esse nome!');
