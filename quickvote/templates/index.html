@@ -112,23 +112,26 @@
             var room = this.user.room;
             var api_url = JSON.parse(document.getElementById('api-url').textContent);
 
-            axios.get(api_url + `?room=${room}&password=${this.user.password}`).then(response =>{
-                const room = response.data;
-                if (room){
-                    if (room.password){
-                        var equal_users = room.users.filter(value => {
-                            if (value.name == this.user.name){return true}
-                            else{return false}
-                        })
-                        if (equal_users.length == 0){
-                            window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/' + room.password;
+            if (this.user.name.length > 3) {
+                axios.get(api_url + `?room=${room}&password=${this.user.password}`).then(response =>{
+                    const room = response.data;
+                    if (room){
+                        if (room.password){
+                            var equal_users = room.users.filter(value => {
+                                if (value.name == this.user.name){return true}
+                                else{return false}
+                            })
+                            if (equal_users.length == 0){
+                                window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/' + room.password;
+                            }
+                            else{ this.generateModal('Esse nome de usuário já está sendo usado!'); }
                         }
-                        else{ this.generateModal('Esse nome de usuário já está sendo usado!'); }
+                        else{ this.generateModal('Senha incorreta!'); }
                     }
-                    else{ this.generateModal('Senha incorreta!'); }
-                }
-                else{ this.generateModal('Esta sala não existe!'); }
-            })
+                    else{ this.generateModal('Esta sala não existe!'); }
+                })
+            }
+            else{ this.generateModal('Nome de usuário deve ter mais que três caracteres!') }
         },
 
         createObject(){
@@ -165,7 +168,7 @@
                 this.generateModal('Nome da sala deve ter mais que quatro caracteres!')
                 return false
             }
-            if (this.user.name.length < 3) {
+            if (this.room.username.length < 3) {
                 this.generateModal('Nome de usuário deve ter mais que três caracteres!')
                 return false
             }
