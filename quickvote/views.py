@@ -42,12 +42,16 @@ class RoomView(TemplateView):
     def get(self, request, *args, **kwargs):
         room_name = mark_safe(self.kwargs.get('room_name'))
         username = mark_safe(self.kwargs.get('username'))
+        password = mark_safe(self.kwargs.get('password'))
 
         if room_name and username:
             room = actions.scenery.get_room_by_number(room_name)
             if room:
-                if not room.get_user_by_name(username):
-                    context = self.get_context_data(**kwargs)
-                    return self.render_to_response(context)
-                else:
-                    return redirect('fast-login', room_name=room_name)
+                if actions.login(room_name, password):
+                    if not room.get_user_by_name(username):
+                        context = self.get_context_data(**kwargs)
+                        return self.render_to_response(context)
+                    else:
+                        return redirect('fast-login', room_name=room_name, password=password)
+                return redirect('home')
+        return redirect('home')
