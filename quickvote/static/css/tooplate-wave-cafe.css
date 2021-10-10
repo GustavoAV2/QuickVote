@@ -17,6 +17,9 @@ html { scroll-behavior: auto; }
     padding:0px;
     font-size: 1.2rem;
 }
+.participants{ cursor: pointer; }
+.participants:hover{ color: #96FEFF; }
+
 .voting{
     background-image: url('../images/Midnight_City.jpg');
     background-size: cover;
