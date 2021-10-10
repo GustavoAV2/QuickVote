@@ -10,7 +10,7 @@ or
 
 `pipenv install`
 
-### Run API
+### Run
 
 Execute
 
