@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring variables">
-      <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_enter.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_enter.html" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring CSS">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/models/scenery.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/scenery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/chat/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +49,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gustavo.voltolini\Desktop\QuickVote\chat\templates" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -281,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633813389632</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Refactoring CSS">
+      <created>1633813844782</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1633813844782</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -300,7 +314,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring HTML from index.html and script" />
     <MESSAGE value="Refactoring HTML from room.html and Script" />
     <MESSAGE value="Refactoring room.py" />
     <MESSAGE value="Creating API routes and Viewset" />
@@ -325,7 +338,8 @@
     <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
     <MESSAGE value="Removing token and creating password" />
     <MESSAGE value="Refactoring variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring variables" />
+    <MESSAGE value="Refactoring CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring CSS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
