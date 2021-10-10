@@ -42,6 +42,8 @@ class Actions:
     def disconnect_room(self, room: str, name_user: str):
         actual_server: Room = self.scenery.get_room_by_number(room)
         actual_server.remove_user_from_server(name_user)
+        if not actual_server.users:
+            self.scenery.remove_server(actual_server.room)
         return actual_server
 
     def login(self, room: str, password: str):
