@@ -1,7 +1,7 @@
 
 
 class User:
-    def __init__(self, name, room: str, admin=False, token=None):
+    def __init__(self, name, room: str, admin=False):
         self.name = name
         self.room = room
         self._admin = admin

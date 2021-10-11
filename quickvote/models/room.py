@@ -4,13 +4,13 @@ from quickvote.models.object import Object
 
 
 class RoomInterface:
-    def __init__(self, theme: str, number: str, password: str, users: List[User] = None, type_room: str = "objects"):
+    def __init__(self, theme: str, room_name: str, password: str, users: List[User] = None, type_room: str = "objects"):
         if users is None:
             users = []
         self.theme = theme
         self.type = type_room
         self.password = password
-        self.room = number
+        self.room_name = room_name
         self._started = False
         self.users = users
 
@@ -79,15 +79,15 @@ class RoomInterface:
 
     def serialize_protected(self):
         return {
-            'room': self.room,
+            'room': self.room_name,
             'type': self.type,
             'users': [user.serialize_protected() for user in self.users],
         }
 
 
 class Room(RoomInterface):
-    def __init__(self, theme: str, password: str, number: str, users: List[User] = None):
-        super().__init__(theme=theme, number=number, password=password, users=users, type_room="users")
+    def __init__(self, theme: str, password: str, room_name: str, users: List[User] = None):
+        super().__init__(theme=theme, room_name=room_name, password=password, users=users, type_room="users")
 
     def _refresh_votes(self):
         self._clear()
@@ -107,7 +107,7 @@ class Room(RoomInterface):
 
     def serialize(self):
         return {
-            'room': self.room,
+            'room': self.room_name,
             'type': self.type,
             'theme': self.theme,
             'started': self._started,
@@ -116,7 +116,7 @@ class Room(RoomInterface):
 
     def advanced_serialize(self):
         return {
-            'room': self.room,
+            'room': self.room_name,
             'type': self.type,
             'theme': self.theme,
             'started': self._started,
@@ -126,8 +126,8 @@ class Room(RoomInterface):
 
 
 class RoomObjects(RoomInterface):
-    def __init__(self, theme: str, password: str, number: str, objects: List, users: List[User] = None):
-        super().__init__(theme=theme, password=password, number=number, users=users)
+    def __init__(self, theme: str, password: str, room_name: str, objects: List, users: List[User] = None):
+        super().__init__(theme=theme, password=password, room_name=room_name, users=users)
         if objects:
             self.objects = [Object(obj.get('name'), 0, obj.get('description')) for obj in objects]
 
@@ -149,7 +149,7 @@ class RoomObjects(RoomInterface):
 
     def serialize(self):
         return {
-            'room': self.room,
+            'room': self.room_name,
             'type': self.type,
             'theme': self.theme,
             'started': self._started,
@@ -159,7 +159,7 @@ class RoomObjects(RoomInterface):
 
     def advanced_serialize(self):
         return {
-            'room': self.room,
+            'room': self.room_name,
             'type': self.type,
             'theme': self.theme,
             'started': self._started,
