@@ -24,6 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h6__pz5m$yk#s2l93$c6ux=%!r1hm%3h%5-^$pb9wzv5^gp*@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# TO USE SHELL: python manage.py shell
+# TO GENERATE STATIC FILES: python manage.py collectstatic
 DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
@@ -124,17 +126,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'  # Development
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Production
+MEDIA_URL = 'media/'  # Development
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Production
 
 ROOM_SOCKET_URL = os.environ.get('SOCKET_ROOM_URL', 'ws://127.0.0.1:8000/ws/room/')
-# wss://quickvote-django.herokuapp.com/ws/room/
 CHAT_SOCKET_URL = os.getenv('SOCKET_CHAT_URL', 'ws://127.0.0.1:8000/ws/chat/')
-# wss://quickvote-django.herokuapp.com/ws/chat/
 API_URL = os.getenv('API_URL', 'http://127.0.0.1:8000/api/')
-# https://quickvote-django.herokuapp.com/api/
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
 
