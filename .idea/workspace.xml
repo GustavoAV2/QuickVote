@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring CSS">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating new called to function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/scenery.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/scenery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/chat/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +292,35 @@
       <option name="project" value="LOCAL" />
       <updated>1633813844782</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Refactor template">
+      <created>1633828954630</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1633828954630</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Creating remove_server function">
+      <created>1633828984700</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1633828984700</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Creating new function to view participants">
+      <created>1633829035536</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1633829035536</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Creating new called to function">
+      <created>1633829067671</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1633829067671</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -314,10 +339,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring HTML from room.html and Script" />
-    <MESSAGE value="Refactoring room.py" />
-    <MESSAGE value="Creating API routes and Viewset" />
-    <MESSAGE value="Strings Correction for ASCII" />
     <MESSAGE value="Fixing url path" />
     <MESSAGE value="Adding environment variables to settings.py and context" />
     <MESSAGE value="Merge from develop" />
@@ -339,7 +360,11 @@
     <MESSAGE value="Removing token and creating password" />
     <MESSAGE value="Refactoring variables" />
     <MESSAGE value="Refactoring CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring CSS" />
+    <MESSAGE value="Refactor template" />
+    <MESSAGE value="Creating remove_server function" />
+    <MESSAGE value="Creating new function to view participants" />
+    <MESSAGE value="Creating new called to function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating new called to function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

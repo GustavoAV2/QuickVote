@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h6__pz5m$yk#s2l93$c6ux=%!r1hm%3h%5-^$pb9wzv5^gp*@3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -136,7 +136,7 @@ CHAT_SOCKET_URL = os.environ.get('CHAT_SOCKET_URL', 'ws://127.0.0.1:8000/ws/chat
 API_URL = os.environ.get('API_URL', 'http://127.0.0.1:8000/api/')
 # https://quickvote-django.herokuapp.com/api/
 
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "../quickvote/static")]
 
 ASGI_APPLICATION = "core.routing.application"
 
