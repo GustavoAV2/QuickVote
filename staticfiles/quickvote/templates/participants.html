@@ -1,0 +1,28 @@
+<div class="modal fade" tabindex="-1" id="partcipantsModal">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Participantes:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <hr>
+            <div class="modal-body">
+                <div class="col">
+                    <div class="row" v-for="user in users" key="user.name"
+                    style="display: flex; justify-content: space-between;">
+                        <h5 class="modal-title">[user.name]</h5>
+                        <template v-if="user.ready">
+                            <p style="color:green;">Pronto</p>
+                        </template>
+                        <template v-else>
+                            <p style="color:red">Em espera</p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
