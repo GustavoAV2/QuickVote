@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating new called to function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/500.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
