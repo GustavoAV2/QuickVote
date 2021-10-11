@@ -3,11 +3,16 @@
 {% block content %}
 
 {% include 'header_menu.html' %}
-<div class="container">
-    <h2 class="head-title">404<br>Página não Encontrada</h2>
+<link rel="stylesheet" href="{% static 'css/errors.css' %}">
+
+<section class="hero d-flex flex-column justify-content-center align-items-center">
+<div>
+    <h2 id="code-error">404</h2>
+    <h2 class="message-error">Página não Encontrada!</h2>
     <p>Infelizmente a página que você procura não está disponível.</p>
-    <div class="header-button">
+    <div>
         <a href="{% url 'index' %}" class="btn btn-common">Volte para a página principal</i></a>
     </div>
 </div>
+</section>
 {% endblock %}
