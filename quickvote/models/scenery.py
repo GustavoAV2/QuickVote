@@ -9,6 +9,11 @@ class Scenery:
         self.rooms.append(room)
         return room
 
+    def remove_server(self, room: str):
+        room = self.get_room_by_room_name(room)
+        if room:
+            self.rooms.remove(room)
+
     def if_room_exists(self, room_name: str) -> bool:
         for room in self.rooms:
             if room.room_name == room_name:
