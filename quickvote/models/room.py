@@ -63,8 +63,8 @@ class RoomInterface:
                         self.new_admin(0)
 
     def start_server(self):
-        self._clear(clear_vote_name=True)
-        self._started = True
+        if self._clear(clear_vote_name=True):
+            self._started = True
         return self._started
 
     def finish_server(self):
@@ -98,12 +98,15 @@ class Room(RoomInterface):
                     voted_user.number_of_votes += 1
 
     def _clear(self, clear_vote_name: bool = False):
-        for user in self.users:
-            user.number_of_votes = 0
-            if clear_vote_name:
-                user.vote = None
-                if not user.ready:
-                    raise IOError
+        users_ready = [user for user in self.users if user.ready]
+        if len(users_ready) == len(self.users):
+            for user in self.users:
+                if user.ready:
+                    user.number_of_votes = 0
+                    if clear_vote_name:
+                        user.vote = None
+            return True
+        return False
 
     def serialize(self):
         return {
@@ -139,13 +142,15 @@ class RoomObjects(RoomInterface):
                     obj.number_of_votes += 1
 
     def _clear(self, clear_vote_name: bool = False):
-        if clear_vote_name:
-            for user in self.users:
-                user.vote = None
-                if not user.ready:
-                    raise IOError
-        for obj in self.objects:
-            obj.number_of_votes = 0
+        users_ready = [user for user in self.users if user.ready]
+        if len(users_ready) == len(self.users):
+            if clear_vote_name:
+                for user in self.users:
+                    user.vote = None
+            for obj in self.objects:
+                obj.number_of_votes = 0
+            return True
+        return False
 
     def serialize(self):
         return {
