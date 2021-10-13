@@ -126,10 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = 'media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'  # Development
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Production
+MEDIA_URL = 'media/'  # Development
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Production
 
 ROOM_SOCKET_URL = os.environ.get('ROOM_SOCKET_URL', 'ws://127.0.0.1:8000/ws/room/')
 CHAT_SOCKET_URL = os.environ.get('CHAT_SOCKET_URL', 'ws://127.0.0.1:8000/ws/chat/')
