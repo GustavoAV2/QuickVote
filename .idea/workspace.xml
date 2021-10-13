@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring variables">
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/chat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/quickvote/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/quickvote/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/quickvote/models/test_scenery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/quickvote/test_actions.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring actions.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/scenery.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/scenery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/quickvote/test_actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/quickvote/test_actions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +47,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users">
+  <component name="RunManager" selected="Python tests.pytest for test_actions.TestScenery.test_actions_refresh_room">
     <configuration name="pytest for test_actions.TestScenery.test_actions_create_room_for_users" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="QuickVote" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,60 +64,77 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_scenery.TestScenery" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_actions.TestScenery.test_actions_disconnect_room" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="QuickVote" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote/models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_scenery.TestScenery&quot;" />
+      <option name="_new_target" value="&quot;test_actions.TestScenery.test_actions_disconnect_room&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_scenery.TestScenery.test_scenery_adding_server" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_actions.TestScenery.test_actions_finalize_votes" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="QuickVote" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote/models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_scenery.TestScenery.test_scenery_adding_server&quot;" />
+      <option name="_new_target" value="&quot;test_actions.TestScenery.test_actions_finalize_votes&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_scenery.TestScenery.test_scenery_get_room_by_number" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_actions.TestScenery.test_actions_refresh_room" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="QuickVote" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote/models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_scenery.TestScenery.test_scenery_get_room_by_number&quot;" />
+      <option name="_new_target" value="&quot;test_actions.TestScenery.test_actions_refresh_room&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_actions.TestScenery.test_actions_start_votes" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="QuickVote" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_actions.TestScenery.test_actions_start_votes&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_refresh_room" />
+        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_finalize_votes" />
+        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_start_votes" />
+        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_disconnect_room" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users" />
-        <item itemvalue="Python tests.pytest for test_scenery.TestScenery" />
-        <item itemvalue="Python tests.pytest for test_scenery.TestScenery.test_scenery_get_room_by_number" />
-        <item itemvalue="Python tests.pytest for test_scenery.TestScenery.test_scenery_adding_server" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +364,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633810138201</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Refactoring clear function">
+      <created>1634124786805</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1634124786805</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Creating remove server function">
+      <created>1634124870324</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1634124870324</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Refactoring actions.py">
+      <created>1634124894170</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1634124894170</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -377,9 +404,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring HTML from index.html and script" />
-    <MESSAGE value="Refactoring HTML from room.html and Script" />
-    <MESSAGE value="Refactoring room.py" />
     <MESSAGE value="Creating API routes and Viewset" />
     <MESSAGE value="Strings Correction for ASCII" />
     <MESSAGE value="Fixing url path" />
@@ -402,7 +426,10 @@
     <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
     <MESSAGE value="Removing token and creating password" />
     <MESSAGE value="Refactoring variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring variables" />
+    <MESSAGE value="Refactoring clear function" />
+    <MESSAGE value="Creating remove server function" />
+    <MESSAGE value="Refactoring actions.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring actions.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -410,6 +437,16 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/api/routes.py</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
