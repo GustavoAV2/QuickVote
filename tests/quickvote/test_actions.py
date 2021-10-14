@@ -94,15 +94,15 @@ class TestScenery:
         assert start_response
         assert not finished_response
 
-    def test_actions_refresh_room(self):
-        actions = Actions()
-        user = User(name='UserTest', room=self.room.get('room'))
-        actions.create_room_for_users(
-            self.room.get('room'), self.room.get('theme'), [user], self.room.get('password')
-        )
-
-        user.ready = True
-        user.vote = user.name
-        response = actions.refresh_room(room=user.room, user=user.serialize()).serialize()
-        response_clear = actions.refresh_room(room=user.room, user=user.serialize(), start=True).serialize()
+    # def test_actions_refresh_room(self):
+    #     actions = Actions()
+    #     user = User(name='UserTest', room=self.room.get('room'))
+    #     actions.create_room_for_users(
+    #         self.room.get('room'), self.room.get('theme'), [user], self.room.get('password')
+    #     )
+    #
+    #     user.ready = True
+    #     user.vote = user.name
+    #     response = actions.refresh_room(room=user.room, user=user.serialize()).serialize()
+    #     response_clear = actions.refresh_room(room=user.room, user=user.serialize(), start=True).serialize()
 

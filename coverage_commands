@@ -1,0 +1,8 @@
+# Run tests with django
+# $ python manage.py test
+
+# Run tests with django and coverage
+# $ coverage run manage.py test
+
+# Generate report
+# $ coverage report

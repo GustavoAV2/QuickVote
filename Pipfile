@@ -11,6 +11,7 @@ whitenoise = "*"
 pytest = "*"
 djangorestframework = "*"
 cryptograpy = "*"
+coverage = "*"
 
 [dev-packages]
 
