@@ -12,7 +12,7 @@ class ApiViewSet(ModelViewSet):
         json = request.GET
 
         if json.get('room'):
-            room = actions.scenery.get_room_by_number(json.get('room', ''))
+            room = actions.scenery.get_room_by_room_name(json.get('room', ''))
             if room:
                 if actions.login(room.room, json.get('password', '')):
                     return Response(room.advanced_serialize())

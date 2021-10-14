@@ -41,7 +41,7 @@ class RoomConsumer(WebsocketConsumer):
         command = data_json.get('command')
 
         if command == 'stop_or_run_room':
-            room = actions.scenery.get_room_by_number(self.room_name)
+            room = actions.scenery.get_room_by_room_name(self.room_name)
             if data_json.get('admin'):
                 if room.started:
                     actions.finalize_votes(self.room_name)
@@ -56,7 +56,7 @@ class RoomConsumer(WebsocketConsumer):
         )
 
     def update_room(self, event):
-        room = actions.scenery.get_room_by_number(self.room_name)
+        room = actions.scenery.get_room_by_room_name(self.room_name)
         self.send(text_data=json.dumps(room.serialize()))
 
     def update_user(self, event):

@@ -45,7 +45,7 @@ class RoomView(TemplateView):
         password = mark_safe(self.kwargs.get('password'))
 
         if room_name and username:
-            room = actions.scenery.get_room_by_number(room_name)
+            room = actions.scenery.get_room_by_room_name(room_name)
             if room:
                 if actions.login(room_name, password):
                     if not room.get_user_by_name(username):
