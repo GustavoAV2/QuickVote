@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring scenery.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/consumers.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/consumers.py" afterDir="false" />
-    </list>
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting called function" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -425,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634125694983</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Correcting called function">
+      <created>1634217706039</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1634217706039</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -444,7 +448,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge from develop" />
     <MESSAGE value="Merge with develop" />
     <MESSAGE value="Deleting last_script.html" />
     <MESSAGE value="Adding tutorial in context" />
@@ -469,7 +472,8 @@
     <MESSAGE value="Refactoring settings.py" />
     <MESSAGE value="Refactoring user.py Model" />
     <MESSAGE value="Refactoring scenery.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring scenery.py" />
+    <MESSAGE value="Correcting called function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting called function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
