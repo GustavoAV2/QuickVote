@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.1.1"
+gunicorn = "==20.0.4"
+channels-redis = "==2.4.2"
+whitenoise = "*"
+pytest = "*"
+djangorestframework = "*"
+cryptograpy = "*"
+coverage = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
