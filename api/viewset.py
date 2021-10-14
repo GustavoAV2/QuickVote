@@ -14,7 +14,7 @@ class ApiViewSet(ModelViewSet):
         if json.get('room'):
             room = actions.scenery.get_room_by_room_name(json.get('room', ''))
             if room:
-                if actions.login(room.room, json.get('password', '')):
+                if actions.login(room.room_name, json.get('password', '')):
                     return Response(room.advanced_serialize())
                 return Response(room.serialize_protected())
             return Response()

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting called function">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting urls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_views.RoomViewTestCase.test_room" />
+        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase.test_index" />
+        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery" />
-        <item itemvalue="Python tests.pytest for test_views.RoomViewTestCase.test_room" />
-        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase" />
-        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase.test_index" />
       </list>
     </recent_temporary>
   </component>
@@ -500,11 +501,6 @@
           <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
           <line>108</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/settings.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
