@@ -130,9 +130,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_start_votes" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_refresh_room" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_finalize_votes" />
-        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_start_votes" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_disconnect_room" />
         <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users" />
       </list>
