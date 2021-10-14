@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/quickvote/tests/test_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,8 +50,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitCode/AutomaticChannel" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gustavo.voltolini\Desktop\QuickVote\quickvote\tests" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -293,14 +305,56 @@
       <option name="project" value="LOCAL" />
       <updated>1634124894170</updated>
     </task>
-    <task id="LOCAL-00035" summary="Refactoring">
-      <created>1634174720992</created>
+    <task id="LOCAL-00035" summary="Refactoring actions.py">
+      <created>1634125628293</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1634174720992</updated>
+      <updated>1634125628293</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Refactoring room.py">
+      <created>1634125639498</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1634125639498</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Refactoring settings.py">
+      <created>1634125658227</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1634125658227</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Refactoring user.py Model">
+      <created>1634125682390</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1634125682390</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Refactoring scenery.py">
+      <created>1634125694983</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1634125694983</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Correcting called function">
+      <created>1634217706039</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1634217706039</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Correcting called function">
+      <created>1634217833111</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1634217833111</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -319,10 +373,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Strings Correction for ASCII" />
-    <MESSAGE value="Fixing url path" />
-    <MESSAGE value="Adding environment variables to settings.py and context" />
-    <MESSAGE value="Merge from develop" />
     <MESSAGE value="Merge with develop" />
     <MESSAGE value="Deleting last_script.html" />
     <MESSAGE value="Adding tutorial in context" />
@@ -343,8 +393,12 @@
     <MESSAGE value="Refactoring clear function" />
     <MESSAGE value="Creating remove server function" />
     <MESSAGE value="Refactoring actions.py" />
-    <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Refactoring room.py" />
+    <MESSAGE value="Refactoring settings.py" />
+    <MESSAGE value="Refactoring user.py Model" />
+    <MESSAGE value="Refactoring scenery.py" />
+    <MESSAGE value="Correcting called function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting called function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -362,6 +416,16 @@
           <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
           <line>108</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/settings.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
