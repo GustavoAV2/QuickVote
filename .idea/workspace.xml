@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring index.html" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring static files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,13 +57,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Refactor consumer">
-      <created>1633095461886</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095461886</updated>
     </task>
     <task id="LOCAL-00005" summary="Creating a form to enter and create a room">
       <created>1633095502028</created>
@@ -401,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634784760829</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Refactoring static files">
+      <created>1634784917622</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1634784917622</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -420,7 +420,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
     <MESSAGE value="Refactoring JavaScript" />
     <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
@@ -445,7 +444,8 @@
     <MESSAGE value="Creating tests" />
     <MESSAGE value="Update css" />
     <MESSAGE value="Refactoring index.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring index.html" />
+    <MESSAGE value="Refactoring static files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring static files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
