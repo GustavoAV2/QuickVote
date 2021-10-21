@@ -24,7 +24,9 @@
                             <div class="tm-site-header size-header">
 
                                 <div class="info-flex">
-                                    <h6 class="lbl-info">Participantes: [users.length]</h6>
+                                    <h6 @click="generatePartModal()" id="players-info" class="lbl-info">
+                                        Participantes: [users.length]
+                                    </h6>
                                     <p class="lbl-info" v-if="numUsersReady.not_ready">Em preparação: [numUsersReady.not_ready]</p>
                                     <p style="color:rgb(89, 231, 89);" class="lbl-info"
                                        v-if="!numUsersReady.not_ready && !room.started">
@@ -166,6 +168,8 @@
         </div>
     </div>
 
+    {% include 'participants.html' %}
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -200,6 +204,7 @@ var app = new Vue({
         },
         winner: null,
         copy: false,
+        error: "",
         time: 15
     },
     created() {
@@ -283,6 +288,9 @@ var app = new Vue({
         },
         closeModal(){
             $("#errorModal").modal('toggle');
+        },
+        generatePartModal(){
+            $("#partcipantsModal").modal();
         },
 
         // WebSockets Functions 
