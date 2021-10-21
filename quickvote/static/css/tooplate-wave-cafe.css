@@ -17,6 +17,13 @@ html { scroll-behavior: auto; }
     padding:0px;
     font-size: 1.2rem;
 }
+#share{ cursor: pointer; padding: 0px; margin: 0px; padding-left: 10px;}
+#players-info{ cursor: pointer; }
+#players-info:hover, #share:hover { 
+    text-decoration: underline; 
+    color: #f13a11;
+}
+
 .voting{
     background-image: url('../images/Midnight_City.jpg');
     background-size: cover;

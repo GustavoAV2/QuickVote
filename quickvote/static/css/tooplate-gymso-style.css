@@ -313,6 +313,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
   /*---------------------------------------
      MENU             
   -----------------------------------------*/
+  #iconQv{
+    width: auto;
+    height: 50px;
+  }
 
   .navbar {
     background: var(--dark-color);

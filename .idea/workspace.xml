@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting room_name">
-      <change afterPath="$PROJECT_DIR$/quickvote/static/images/QVIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickvote/static/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickvote/templates/participants.html" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating participants.html">
       <change afterPath="$PROJECT_DIR$/quickvote/tests/models/test_scenery.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/quickvote/tests/test_actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/fast_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/fast_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/header_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/header_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/header_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/header_room.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/quickvote/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/tests/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/quickvote/models/test_scenery.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/quickvote/test_actions.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +359,49 @@
       <option name="project" value="LOCAL" />
       <updated>1634220861249</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Refactor files">
+      <created>1634782612898</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782612898</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Creating Icons">
+      <created>1634782627962</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782627962</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Refactor base.html">
+      <created>1634782660220</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782660220</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Refactor fast_login.html">
+      <created>1634782705571</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782705571</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Refactor headers and create button to copy link">
+      <created>1634782743626</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782743626</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Creating participants.html">
+      <created>1634782755593</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782755593</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -388,12 +420,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Deleting last_script.html" />
-    <MESSAGE value="Adding tutorial in context" />
-    <MESSAGE value="Refactoring HTML, CSS and JavaScript" />
-    <MESSAGE value="Refactoring route" />
-    <MESSAGE value="Creating new routes" />
-    <MESSAGE value="Refactoring HTML and CSS" />
     <MESSAGE value="Installing new dependencies" />
     <MESSAGE value="Adding password to routes" />
     <MESSAGE value="Adding login" />
@@ -413,7 +439,13 @@
     <MESSAGE value="Refactoring scenery.py" />
     <MESSAGE value="Correcting called function" />
     <MESSAGE value="Correcting room_name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcting room_name" />
+    <MESSAGE value="Refactor files" />
+    <MESSAGE value="Creating Icons" />
+    <MESSAGE value="Refactor base.html" />
+    <MESSAGE value="Refactor fast_login.html" />
+    <MESSAGE value="Refactor headers and create button to copy link" />
+    <MESSAGE value="Creating participants.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating participants.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
