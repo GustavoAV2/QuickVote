@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Update css" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Merge with develop and removing tests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -420,7 +422,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring and creating login function" />
     <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
     <MESSAGE value="Refactoring JavaScript" />
@@ -445,7 +446,8 @@
     <MESSAGE value="Creating errors in room.html" />
     <MESSAGE value="Creating tests" />
     <MESSAGE value="Update css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update css" />
+    <MESSAGE value="Merge with develop and removing tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge with develop and removing tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
