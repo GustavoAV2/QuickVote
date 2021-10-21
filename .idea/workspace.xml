@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Merge with develop and removing tests">
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring index.html" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,13 +57,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixing action functions">
-      <created>1633095406972</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095406972</updated>
     </task>
     <task id="LOCAL-00004" summary="Refactor consumer">
       <created>1633095461886</created>
@@ -403,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634782836941</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Refactoring index.html">
+      <created>1634784760829</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1634784760829</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -422,7 +420,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring and creating login function" />
     <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
     <MESSAGE value="Refactoring JavaScript" />
@@ -447,7 +444,8 @@
     <MESSAGE value="Creating errors in room.html" />
     <MESSAGE value="Creating tests" />
     <MESSAGE value="Update css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update css" />
+    <MESSAGE value="Refactoring index.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring index.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
