@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating participants.html">
-      <change afterPath="$PROJECT_DIR$/quickvote/tests/models/test_scenery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quickvote/tests/test_actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-wave-cafe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
-    </list>
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Update css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,20 +57,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Installing new dependencies">
-      <created>1633095152643</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095152643</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Creating global actions">
-      <created>1633095279571</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095279572</updated>
     </task>
     <task id="LOCAL-00003" summary="Fixing action functions">
       <created>1633095406972</created>
@@ -401,7 +380,28 @@
       <option name="project" value="LOCAL" />
       <updated>1634782755593</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Creating errors in room.html">
+      <created>1634782795832</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782795832</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Creating tests">
+      <created>1634782805295</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782805297</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update css">
+      <created>1634782836941</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782836941</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -420,9 +420,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Installing new dependencies" />
-    <MESSAGE value="Adding password to routes" />
-    <MESSAGE value="Adding login" />
     <MESSAGE value="Refactoring and creating login function" />
     <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
@@ -445,7 +442,10 @@
     <MESSAGE value="Refactor fast_login.html" />
     <MESSAGE value="Refactor headers and create button to copy link" />
     <MESSAGE value="Creating participants.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating participants.html" />
+    <MESSAGE value="Creating errors in room.html" />
+    <MESSAGE value="Creating tests" />
+    <MESSAGE value="Update css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
