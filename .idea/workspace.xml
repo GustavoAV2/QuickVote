@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting urls">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
-    </list>
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Update css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,104 +41,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitCode/AutomaticChannel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gustavo.voltolini\Desktop\QuickVote\quickvote\tests" />
     </key>
-  </component>
-  <component name="RunManager" selected="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users">
-    <configuration name="pytest for test_actions.TestScenery" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="QuickVote" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_actions.TestScenery&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_actions.TestScenery.test_actions_create_room_for_users" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="QuickVote" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/quickvote" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_actions.TestScenery.test_actions_create_room_for_users&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_views.IndexViewTestCase" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="QuickVote" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/quickvote/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.IndexViewTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_views.IndexViewTestCase.test_index" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="QuickVote" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/quickvote/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.IndexViewTestCase.test_index&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_views.RoomViewTestCase.test_room" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="QuickVote" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/quickvote/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_views.RoomViewTestCase.test_room&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python tests.pytest for test_views.RoomViewTestCase.test_room" />
-        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase.test_index" />
-        <item itemvalue="Python tests.pytest for test_views.IndexViewTestCase" />
-        <item itemvalue="Python tests.pytest for test_actions.TestScenery.test_actions_create_room_for_users" />
-        <item itemvalue="Python tests.pytest for test_actions.TestScenery" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -151,20 +57,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Installing new dependencies">
-      <created>1633095152643</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095152643</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Creating global actions">
-      <created>1633095279571</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095279572</updated>
     </task>
     <task id="LOCAL-00003" summary="Fixing action functions">
       <created>1633095406972</created>
@@ -439,7 +331,77 @@
       <option name="project" value="LOCAL" />
       <updated>1634217833111</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Correcting room_name">
+      <created>1634220861249</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1634220861249</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Refactor files">
+      <created>1634782612898</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782612898</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Creating Icons">
+      <created>1634782627962</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782627962</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Refactor base.html">
+      <created>1634782660220</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782660220</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Refactor fast_login.html">
+      <created>1634782705571</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782705571</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Refactor headers and create button to copy link">
+      <created>1634782743626</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782743626</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Creating participants.html">
+      <created>1634782755593</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782755593</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Creating errors in room.html">
+      <created>1634782795832</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782795832</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Creating tests">
+      <created>1634782805295</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782805297</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update css">
+      <created>1634782836941</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1634782836941</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -458,16 +420,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge with develop" />
-    <MESSAGE value="Deleting last_script.html" />
-    <MESSAGE value="Adding tutorial in context" />
-    <MESSAGE value="Refactoring HTML, CSS and JavaScript" />
-    <MESSAGE value="Refactoring route" />
-    <MESSAGE value="Creating new routes" />
-    <MESSAGE value="Refactoring HTML and CSS" />
-    <MESSAGE value="Installing new dependencies" />
-    <MESSAGE value="Adding password to routes" />
-    <MESSAGE value="Adding login" />
     <MESSAGE value="Refactoring and creating login function" />
     <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
@@ -483,7 +435,17 @@
     <MESSAGE value="Refactoring user.py Model" />
     <MESSAGE value="Refactoring scenery.py" />
     <MESSAGE value="Correcting called function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcting called function" />
+    <MESSAGE value="Correcting room_name" />
+    <MESSAGE value="Refactor files" />
+    <MESSAGE value="Creating Icons" />
+    <MESSAGE value="Refactor base.html" />
+    <MESSAGE value="Refactor fast_login.html" />
+    <MESSAGE value="Refactor headers and create button to copy link" />
+    <MESSAGE value="Creating participants.html" />
+    <MESSAGE value="Creating errors in room.html" />
+    <MESSAGE value="Creating tests" />
+    <MESSAGE value="Update css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -493,19 +455,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
-          <line>76</line>
+          <url>file://$PROJECT_DIR$/quickvote/tests/test_actions.py</url>
+          <line>75</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
-          <line>108</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/quickvote/test_actions.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
