@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Merge with develop and removing tests">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring static files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/static/css/tooplate-gymso-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,7 +425,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding password to consumer" />
     <MESSAGE value="Refactoring HTML and JavaScript" />
     <MESSAGE value="Refactoring JavaScript" />
     <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
@@ -447,7 +449,8 @@
     <MESSAGE value="Creating tests" />
     <MESSAGE value="Update css" />
     <MESSAGE value="Merge with develop and removing tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge with develop and removing tests" />
+    <MESSAGE value="Refactoring static files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring static files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -136,6 +136,10 @@ https://www.tooplate.com/view/2119-gymso-fitness
     color: var(--primary-color);
   }
 
+  #attention{
+    font-size: 14px;
+    color: rgba(170, 20, 20, 0.842);
+  }
   .custom-btn {
     background: transparent;
     border-radius: var(--border-radius-small);

@@ -23,7 +23,8 @@
                         <option :value="'users'">Eleição</option>
                         <option :value="'objects'">Votar em itens</option>
                     </select>
-
+                    <p id="attention" data-aos="fade-up" data-aos-delay="240">Acentos serão ignorados!</p>
+                    
                     <button @click="createServer()" type="submit" class="btn custom-btn-dark bg-color mt-3">
                         Criar sala
                     </button>
@@ -50,9 +51,9 @@
                 </template>
 
                 <template v-else>
-                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="180">Objetos</h2>
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="180">Itens</h2>
 
-                    <p data-aos="fade-up" data-aos-delay="180">Nome do Objeto:</p>
+                    <p data-aos="fade-up" data-aos-delay="180">Nome do Item:</p>
                     <input type="text" v-model="object.name" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
 
                     <p data-aos="fade-up" data-aos-delay="180">Descrição (Opcional):</p>
@@ -63,7 +64,7 @@
                             Criar Objeto
                         </button>
 
-                        <button @click="table = !table" id="btn-obj" class="btn custom-btn bordered mt-3 " data-aos="fade-up" data-aos-delay="240">
+                        <button @click="listObjects()" id="btn-obj" class="btn custom-btn bordered mt-3 " data-aos="fade-up" data-aos-delay="240">
                             Ver Objetos
                         </button>
                     </div>

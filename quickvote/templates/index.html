@@ -96,8 +96,8 @@
             if (this.validations()){
                 this.room.objects = this.objects;
                 this.room.type = this.type;
-                this.room.room = this.room.room.normalize("NFD")
-                this.room.username = this.room.username.normalize("NFD")
+                this.room.room = this.formatString(this.room.room);
+                this.room.username = this.formatString(this.room.username);
 
                 var api_url = JSON.parse(document.getElementById('api-url').textContent);
                 axios.post(api_url, this.room).then(response =>{
@@ -111,7 +111,8 @@
         },
 
         enterServer(){
-            var room = this.user.room;
+            var room = this.formatString(this.user.room);
+            this.user.password = this.formatString(this.user.password);
             var api_url = JSON.parse(document.getElementById('api-url').textContent);
 
             axios.get(api_url + `?room=${room}&password=${this.user.password}`).then(response =>{
@@ -145,6 +146,13 @@
             }
         },
 
+        
+        listObjects(){
+            if (this.objects.length == 0){
+                this.generateModal('Não existem objetos cadastrados!')
+            }
+            else{ this.table = !this.table }
+        },
         deleteObject(object){
             const new_objects = [];
             for (var i in this.objects){
@@ -179,7 +187,14 @@
                 this.generateModal('A senha deve ter no minimo seis caracteres!')
                 return false
             }
+            if (this.type == 'objects' && this.objects.length == 0){
+                this.generateModal('Cadastre Cards para criar a sala!');
+                return false;
+            }
             return true
+        },
+        formatString(data){
+            return data.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         },
         generateModal(message){
             this.error = message;
