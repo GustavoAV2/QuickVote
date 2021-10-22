@@ -1,0 +1,77 @@
+{% load static %}
+
+{{ room_name|json_script:"room-name" }}
+<div id="header-room">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="cont">
+            <img id="iconQv" src="{% static 'images/QVIcon.png' %}" alt="Quick Vote">
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <template v-if="!copy">
+                        <li class="nav-item">
+                            <p @click="copyRoomname()" id="share" class="nav-link smoothScroll">compartilhar sala</p>
+                        </li>
+                    </template>
+        
+                    <template v-else>
+                        <li class="nav-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                            <label class="check">Copied!</label>
+                        </li>
+                    </template>
+        
+                    <li class="nav-item">
+                        <a href="/" class="nav-link smoothScroll">Sair</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#header-room',
+    delimiters: ['[', ']'],
+    data: {
+        roomName: JSON.parse(document.getElementById('room-name').textContent),
+        copy: false,
+    },
+    methods: {
+        copyRoomname(){
+            this.copy = true;
+            navigator.clipboard.writeText(window.location);
+        },
+    },
+
+    watch: {
+        copy() {
+            setTimeout(() => { this.copy = false; }, 2500);
+        }
+    },
+});
+</script>
+
+<style scoped>
+svg{
+    color: rgb(89, 231, 89);
+}
+.port-room{
+    color: #f13a11;
+    cursor: pointer;
+}
+.check{
+    color: rgb(89, 231, 89);
+}
+.cont{
+    display: flex;
+    justify-content: space-around;
+    background-color: none;
+    border: none;
+}
+</style>

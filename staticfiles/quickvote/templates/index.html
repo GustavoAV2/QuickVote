@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+{% include 'header_menu.html' %}
+
+{{ api_url|json_script:"api-url" }}
+
+<div id="home-page">
+    <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atenção</h5>
+                </div>
+                <div class="modal-body">
+                    <p>[error]</p>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-10 mx-auto col-12">
+                    <div class="hero-text mt-5 text-center">
+
+                        <h6 data-aos="fade-up" data-aos-delay="140">Votações rápidas!</h6>
+                        <h1 class="text-white" data-aos="fade-up" data-aos-delay="180">Crie salas para votar ou fazer eleições!</h1>
+                        <a  href="#create" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="220">Crie sua sala</a>
+                        <a href="#enter" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="220">Entre</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Enter the Room -->
+    {% include 'form_enter.html' %}
+
+     <!-- Create Room -->
+    {% include 'form_create.html' %}
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var app = new Vue({
+      delimiters: ['[', ']'],
+      el: '#home-page',
+      data: {
+        type: "users",
+        table: false,
+        objects: [],
+        error: '',
+        object: { 'name': '', 'description': '' },
+        room: {
+            'username': '',
+            'room': '', 
+            'theme': '',
+            'objects': [],
+            'type': '',
+            'password': ''
+        },
+        user: {
+            'name': '',
+            'room': '',
+            'vote':'',
+            'password': '',
+            'admin': false,
+        }
+      },
+
+      watch:{
+            ['user.name'](){
+                this.user.name = this.user.name.slice(0, 30)
+            },
+            ['user.room'](){
+                if (this.user.room){
+                    this.user.room = this.user.room.slice(0, 50)
+                }
+            }
+        },
+
+      methods: {
+        createServer(){
+            if (this.validations()){
+                this.room.objects = this.objects;
+                this.room.type = this.type;
+                this.room.room = this.formatString(this.room.room);
+                this.room.username = this.formatString(this.room.username);
+
+                var api_url = JSON.parse(document.getElementById('api-url').textContent);
+                axios.post(api_url, this.room).then(response =>{
+                    const room = response.data;
+                    window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
+                }).
+                catch(() => {
+                    this.generateModal('Já existe uma sala com esse nome!');
+                })
+            }
+        },
+
+        enterServer(){
+            var room = this.formatString(this.user.room);
+            this.user.password = this.formatString(this.user.password);
+            var api_url = JSON.parse(document.getElementById('api-url').textContent);
+
+            if (this.user.name.length > 3) {
+                axios.get(api_url + `?room=${room}&password=${this.user.password}`).then(response =>{
+                    const room = response.data;
+                    if (room){
+                        if (room.password){
+                            var equal_users = room.users.filter(value => {
+                                if (value.name == this.user.name){return true}
+                                else{return false}
+                            })
+                            if (equal_users.length == 0){
+                                window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/' + room.password;
+                            }
+                            else{ this.generateModal('Esse nome de usuário já está sendo usado!'); }
+                        }
+                        else{ this.generateModal('Senha incorreta!'); }
+                    }
+                    else{ this.generateModal('Esta sala não existe!'); }
+                })
+            }
+            else{ this.generateModal('Nome de usuário deve ter mais que três caracteres!') }
+        },
+
+        createObject(){
+            const f = obj => {return obj.name.toLowerCase() == this.object.name.toLowerCase()}
+            const validation = this.objects.filter(f)
+            if (!validation.length && this.object.name.length){
+                this.objects.push({...this.object})
+                this.generateModal(`Objeto ${this.object.name} criado!`);
+            }
+            else{ 
+                this.generateModal('Esse objeto já existe!');
+            }
+        },
+
+        
+        listObjects(){
+            if (this.objects.length == 0){
+                this.generateModal('Não existem objetos cadastrados!')
+            }
+            else{ this.table = !this.table }
+        },
+        deleteObject(object){
+            const new_objects = [];
+            for (var i in this.objects){
+                if (this.objects[i].name != object.name){
+                    new_objects.push(this.objects[i]);
+                }
+            }
+            this.objects = new_objects;
+        },
+        refactorString(desc){
+            if (desc.length > 30){
+                const string = desc[0]+desc[1]+desc[2]+desc[3]+desc[4]+desc[5]+" ..."
+                return string
+            }
+            return desc
+        },
+
+        validations(){
+            if (this.room.room.length < 4){
+                this.generateModal('Nome da sala deve ter mais que quatro caracteres!')
+                return false
+            }
+            if (this.room.username.length < 3) {
+                this.generateModal('Nome de usuário deve ter mais que três caracteres!')
+                return false
+            }
+            if (this.room.theme.length < 6){
+                this.generateModal('O tema deve ter no minimo seis caracteres!')
+                return false
+            }
+            if (this.room.password.length < 6){
+                this.generateModal('A senha deve ter no minimo seis caracteres!')
+                return false
+            }
+            if (this.type == 'objects' && this.objects.length == 0){
+                this.generateModal('Cadastre Cards para criar a sala!');
+                return false;
+            }
+            return true
+        },
+        formatString(data){
+            return data.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        },
+        generateModal(message){
+            this.error = message;
+            $("#errorModal").modal();
+        },
+        closeModal(){
+            $("#errorModal").modal('toggle');
+        }
+      }
+    })
+</script>
+{% endblock %}

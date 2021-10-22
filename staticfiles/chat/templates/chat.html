@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/chat.css' %}">
+
+<div class="container chat-top">
+    <div id="chat">
+        <div v-for="msg in messages">
+            <div v-if="msg.name != username" class="container size-message darker">
+                <h3 class="right">[msg.name]</h3>
+                <p class="message">[msg.message]</p>
+                <span class="time-left">[msg.time]</span>
+            </div>
+            <div v-if="msg.name == username" class="container size-message white">
+                <!-- <div class="div-left">
+                    <h3 class="right">[msg.name]</h3>
+                </div> -->
+                <p class="message">[msg.message]</p>
+                <span class="time-right">[msg.time]</span>
+            </div>
+        </div>
+    </div>
+    <div class="chat-message">
+        <input id="chat-message-input"  v-on:keyup.13="sendMessage()" type="text" v-model="message">
+        <button id="chat-button-input" class="btn btn-info" @click="sendMessage()">Enviar</button>
+    </div>
+</div>

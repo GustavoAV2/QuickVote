@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'header_menu.html' %}
+
+{{ room_name|json_script:"room-name" }}
+{{ password|json_script:"password" }}
+{{ api_url|json_script:"api-url" }}
+
+<div id="fast-login">
+    <!--  Error Message  -->
+    <div class="modal fade" id="errorFastLoginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atenção</h5>
+                </div>
+                <div class="modal-body">
+                    <p>[error]</p>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+        <div class="bg-overlay"></div>
+
+        <div class="container">
+
+            <div class="d-flex flex-column justify-content-center login-margin">
+                <h2 class="mb-3 text-white" data-aos="fade-up" data-aos-delay="180">Entre na sala!</h2>
+
+                <label class="mb-2 text-white" data-aos="fade-up" data-aos-delay="180">Nome da sala:</label>
+                <input disabled="true" type="tel" v-model="user.room" placeholder="Nome da sala" data-aos="fade-up" data-aos-delay="220">
+
+                <label class="mb-2 text-white" data-aos="fade-up" data-aos-delay="180">Seu nome:</label>
+                <input type="text" v-model="user.name" placeholder="Usuario" data-aos="fade-up" data-aos-delay="220">
+
+                <p data-aos="fade-up" data-aos-delay="240">Preencha seu nome para entrar na sala!</p>
+                <button type="submit" class="btn custom-btn bg-color mt-3" data-aos="fade-up"
+                        @click="enterServer()" data-aos-delay="240">Entrar</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+var app = new Vue({
+    el: '#fast-login',
+    delimiters: ['[', ']'],
+    data: {
+        criticalError: false,
+        room_name: JSON.parse(document.getElementById('room-name').textContent),
+        password: JSON.parse(document.getElementById('password').textContent),
+        user: {
+            name: '',
+            room: '',
+            password: ''
+        },
+        error: ''
+    },
+
+    methods: {
+        enterServer(){
+            var room_name = this.user.room;
+            var api_url = JSON.parse(document.getElementById('api-url').textContent);
+
+            if (this.validations()){
+                axios.get(api_url + `?room=${room_name}&password=${this.password}`).then(response =>{
+                    const room = response.data;
+
+                    if (room){
+                        var equal_users = room.users.filter(value => {
+                            if (value.name == this.user.name){return true}
+                            else{return false}
+                        })
+                        if (equal_users.length == 0){
+                            window.location.pathname = '/' + this.user.room + '/' + this.user.name + '/' + room.password;
+                        }
+                        else{
+                            this.generateModal('Esse nome de usuário já está sendo usado!');
+                        }
+                    }
+                    else{
+                        this.criticalError = true;
+                        this.generateModal('Essa sala não esta mais ativa!');
+                    }
+                }).catch(()=>{
+                    this.criticalError = true;
+                    this.generateModal('Não foi possível entrar na sala!');
+                })
+            }
+        },
+        validations(){
+            if (this.user.name.length < 3) {
+                this.generateModal('Nome de usuário deve ter mais que três caracteres!')
+                return false
+            }
+            return true
+        },
+
+        generateModal(message){
+            this.error = message;
+            $("#errorFastLoginModal").modal();
+        },
+        closeModal(){
+            if (this.criticalError == true){
+                $("#errorFastLoginModal").modal('toggle');
+                window.location.pathname = '/';
+            }
+            else{ $("#errorFastLoginModal").modal('toggle'); }
+        }
+    },
+
+    created() {
+        this.user.room = this.room_name;
+        this.user.password = this.password;
+    }
+});
+</script>
+
+{% endblock %}
