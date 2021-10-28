@@ -1,6 +1,7 @@
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
+from ratelimit import limits
 from quickvote import actions
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
 
 class ApiViewSet(ModelViewSet):
@@ -8,6 +9,7 @@ class ApiViewSet(ModelViewSet):
     def update(self, request, *args, **kwargs):
         ...
 
+    @limits(calls=30, period=60)
     def list(self, request, *args, **kwargs):
         json = request.GET
 
@@ -21,6 +23,7 @@ class ApiViewSet(ModelViewSet):
 
         return Response(actions.scenery.serialize())
 
+    @limits(calls=30, period=60)
     def create(self, request, *args, **kwargs):
         json = request.data
 
