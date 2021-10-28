@@ -51,13 +51,13 @@
                 </template>
 
                 <template v-else>
-                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="180">Itens</h2>
+                    <h2 class="mb-3" data-aos="fade-up" data-aos-delay="180">Itens</h2>
 
-                    <p data-aos="fade-up" data-aos-delay="180">Nome do Item:</p>
-                    <input type="text" v-model="object.name" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+                    <p class="lbl-create" data-aos="fade-up" data-aos-delay="180">Nome do Item:</p>
+                    <input class="input-create" type="text" v-model="object.name" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
 
-                    <p data-aos="fade-up" data-aos-delay="180">Descrição (Opcional):</p>
-                    <input type="text" v-model="object.description" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
+                    <p class="lbl-create" data-aos="fade-up" data-aos-delay="180">Descrição (Opcional):</p>
+                    <input class="input-create" type="text" v-model="object.description" data-aos="fade-up" style="width: 80%;" data-aos-delay="220">
 
                     <div>
                         <button class="btn custom-btn-dark bg-color mt-3" data-aos="fade-up" data-aos-delay="240" @click="createObject()">
