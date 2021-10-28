@@ -1,35 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating rate limit">
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Refactoring static files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/aos.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/chat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/tooplate-gymso-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/css/tooplate-wave-cafe.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/Plain-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/images/Deep_Space.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/images/Midnight_City.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/images/QVIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/images/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/aos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/custom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/js/smoothscroll.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickvote/templates/room.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/room.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Work/marvin" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
