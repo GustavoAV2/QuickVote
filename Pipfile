@@ -12,6 +12,7 @@ pytest = "*"
 djangorestframework = "*"
 cryptograpy = "*"
 coverage = "*"
+ratelimit = "*"
 
 [dev-packages]
 

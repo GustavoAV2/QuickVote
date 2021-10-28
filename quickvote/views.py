@@ -1,3 +1,4 @@
+from ratelimit import limits
 from quickvote import actions
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
@@ -13,6 +14,11 @@ class IndexView(TemplateView):
         context['api_url'] = API_URL
         return context
 
+    @limits(calls=15, period=60)
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
 
 class FastLogin(TemplateView):
     template_name = 'fast_login.html'
@@ -21,6 +27,11 @@ class FastLogin(TemplateView):
         context = super(FastLogin, self).get_context_data(**kwargs)
         context['api_url'] = API_URL
         return context
+
+    @limits(calls=15, period=60)
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
 
 
 class RoomView(TemplateView):
@@ -39,6 +50,7 @@ class RoomView(TemplateView):
         """
         return context
 
+    @limits(calls=6, period=60)
     def get(self, request, *args, **kwargs):
         room_name = mark_safe(self.kwargs.get('room_name'))
         username = mark_safe(self.kwargs.get('username'))
