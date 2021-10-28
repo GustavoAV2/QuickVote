@@ -128,7 +128,13 @@ https://www.tooplate.com/view/2119-gymso-fitness
   .section {
     padding: 4rem 0;
   }
-
+  .lbl-create{
+    padding: 0px;
+    margin: 0px;
+  }
+  .input-create{
+    margin-bottom: 6px;
+  }
 
   /* BUTTON */
   #btn-obj {
@@ -138,6 +144,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   #attention{
     font-size: 14px;
+    padding: 0px;
+    margin: 0px;
     color: rgba(170, 20, 20, 0.842);
   }
   .custom-btn {
