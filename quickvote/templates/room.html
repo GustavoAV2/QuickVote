@@ -208,33 +208,38 @@ var app = new Vue({
         time: 15
     },
     created() {
-        this.user_now.name = this.username;
-        this.user_now.room = this.roomName;
-        var room_url = JSON.parse(document.getElementById('room-ws-url').textContent);
-        var route_ws = encodeURI(room_url + this.roomName + '/' + this.username + '/' + this.password);
+        try{
+            this.user_now.name = this.username;
+            this.user_now.room = this.roomName;
+            var room_url = JSON.parse(document.getElementById('room-ws-url').textContent);
+            var route_ws = encodeURI(room_url + this.roomName + '/' + this.username + '/' + this.password);
 
-        // Room Socket
-        this.roomSocket = new WebSocket(route_ws);
-        this.roomSocket.onmessage = e => {
-            this.room = JSON.parse(e.data);
-            this.users = this.room.users;
-            this.user_now = this.users.filter((value) => { return value.name == this.username })[0];
-        };
+            // Room Socket
+            this.roomSocket = new WebSocket(route_ws);
+            this.roomSocket.onmessage = e => {
+                this.room = JSON.parse(e.data);
+                this.users = this.room.users;
+                this.user_now = this.users.filter((value) => { return value.name == this.username })[0];
+            };
 
-        // Chat Socket
-        var chat_url = JSON.parse(document.getElementById('chat-ws-url').textContent);
+            // Chat Socket
+            var chat_url = JSON.parse(document.getElementById('chat-ws-url').textContent);
 
-        this.chatSocket = new WebSocket(chat_url + this.roomName + '/');
-        this.chatSocket.onmessage = e => {
-            const data = JSON.parse(e.data);
-            this.messages.push({
-                name: data.name,
-                message: data.message,
-                time: this.getTimeStr()
-            });
-            this.scrollChat();
-        };
-        this.chatSocket.onclose = function (e) { };
+            this.chatSocket = new WebSocket(chat_url + this.roomName + '/');
+            this.chatSocket.onmessage = e => {
+                const data = JSON.parse(e.data);
+                this.messages.push({
+                    name: data.name,
+                    message: data.message,
+                    time: this.getTimeStr()
+                });
+                this.scrollChat();
+            };
+            this.chatSocket.onclose = function (e) { };
+        }
+        catch {
+            window.location.pathname = '/';
+        }
     },
     methods: {
         // Handling Data

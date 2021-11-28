@@ -83,12 +83,24 @@
       },
 
       watch:{
+            ['room.username'](){
+                if (this.room.username){
+                    this.room.username = this.replaceString(this.room.username, 30);
+                }
+            },
+            ['room.room'](){
+                if (this.room.room){
+                    this.room.room = this.replaceString(this.room.room, 50);
+                }
+            },
             ['user.name'](){
-                this.user.name = this.user.name.slice(0, 30)
+                if (this.user.name){
+                    this.user.name = this.replaceString(this.user.name, 30); 
+                }
             },
             ['user.room'](){
                 if (this.user.room){
-                    this.user.room = this.user.room.slice(0, 50)
+                    this.user.room = this.replaceString(this.user.room, 50);
                 }
             }
         },
@@ -173,6 +185,11 @@
                 return string
             }
             return desc
+        },
+        replaceString(item, size){
+            item = item.slice(0, size)
+            item = item.replace(/[^a-zA-Z 0-9]/g, '');
+            return item
         },
 
         validations(){
