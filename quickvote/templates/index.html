@@ -114,7 +114,7 @@
                 this.room.username = this.formatString(this.room.username);
 
                 var api_url = JSON.parse(document.getElementById('api-url').textContent);
-                axios.post(api_url, this.room).then(response =>{
+                axios.post(api_url, JSON.stringify(this.room)).then(response =>{
                     const room = response.data;
                     window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
                 }).
