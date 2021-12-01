@@ -117,7 +117,7 @@
                 payload = JSON.stringify(this.room);
                 axios.post(api_url, payload).then(response =>{
                     const room = response.data;
-                    window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
+                    location.href = '/' + room.room + '/' + this.room.username + '/' + room.password;
                 }).
                 catch((er) => {
                     this.generateModal('Já existe uma sala com esse nome!');
