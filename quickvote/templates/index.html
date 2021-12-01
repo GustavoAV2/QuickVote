@@ -114,11 +114,12 @@
                 this.room.username = this.formatString(this.room.username);
 
                 var api_url = JSON.parse(document.getElementById('api-url').textContent);
-                axios.post(api_url, JSON.stringify(this.room)).then(response =>{
+                payload = JSON.stringify(this.room);
+                axios.post(api_url, payload).then(response =>{
                     const room = response.data;
                     window.location.pathname = '/' + room.room + '/' + this.room.username + '/' + room.password;
                 }).
-                catch(() => {
+                catch((er) => {
                     this.generateModal('Já existe uma sala com esse nome!');
                 })
             }

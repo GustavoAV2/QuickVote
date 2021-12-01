@@ -1,3 +1,4 @@
+import json as js
 from ratelimit import limits
 from quickvote import actions
 from rest_framework.response import Response
@@ -25,7 +26,10 @@ class ApiViewSet(ModelViewSet):
 
     @limits(calls=30, period=60)
     def create(self, request, *args, **kwargs):
-        json = request.data
+        json = request.data.dict()
+        j = str(json)
+        j = j.replace("': ''}", "").replace("{'", "")
+        json = js.loads(j)
 
         if not actions.scenery.if_room_exists(json.get('room')):
             if json.get('type') == 'objects':
