@@ -19,7 +19,8 @@ class ApiViewSet(ModelViewSet):
             room = actions.scenery.get_room_by_room_name(json.get('room', ''))
             if room:
                 if actions.login(room.room_name, json.get('password', '')):
-                    return Response(room.advanced_serialize(), headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
+                    return Response(room.advanced_serialize(),
+                                    headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
                 return Response(room.serialize_protected(), headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
             return Response(headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
 
