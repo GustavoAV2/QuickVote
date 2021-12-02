@@ -40,6 +40,6 @@ class ApiViewSet(ModelViewSet):
             else:
                 room = actions.create_room_for_users(json.get('room'), json.get('theme'), password=json.get('password'))
             return Response(room.advanced_serialize(), status=200,
-                            headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
+                            headers={'Access-Control-Allow-Origin': 'https://quickvote-django.herokuapp.com'})
 
-        return Response(status=404, headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
+        return Response(status=404, headers={'Access-Control-Allow-Origin': 'https://quickvote-django.herokuapp.com'})
