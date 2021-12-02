@@ -1,7 +1,6 @@
 import json as js
 from ratelimit import limits
 from quickvote import actions
-from core.settings import ALLOWED_HOSTS
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -20,11 +19,11 @@ class ApiViewSet(ModelViewSet):
             if room:
                 if actions.login(room.room_name, json.get('password', '')):
                     return Response(room.advanced_serialize(),
-                                    headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
-                return Response(room.serialize_protected(), headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
-            return Response(headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
+                                    headers={'Access-Control-Allow-Origin': '*'})
+                return Response(room.serialize_protected(), headers={'Access-Control-Allow-Origin': '*'})
+            return Response(headers={'Access-Control-Allow-Origin': '*'})
 
-        return Response(actions.scenery.serialize(), headers={'Access-Control-Allow-Origin': ALLOWED_HOSTS})
+        return Response(actions.scenery.serialize(), headers={'Access-Control-Allow-Origin': '*'})
 
     @limits(calls=30, period=60)
     def create(self, request, *args, **kwargs):
@@ -40,6 +39,6 @@ class ApiViewSet(ModelViewSet):
             else:
                 room = actions.create_room_for_users(json.get('room'), json.get('theme'), password=json.get('password'))
             return Response(room.advanced_serialize(), status=200,
-                            headers={'Access-Control-Allow-Origin': 'https://quickvote-django.herokuapp.com'})
+                            headers={'Access-Control-Allow-Origin': '*'})
 
-        return Response(status=404, headers={'Access-Control-Allow-Origin': 'https://quickvote-django.herokuapp.com'})
+        return Response(status=404, headers={'Access-Control-Allow-Origin': '*'})
