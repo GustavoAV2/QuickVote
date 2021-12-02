@@ -13,6 +13,7 @@ djangorestframework = "*"
 cryptograpy = "*"
 coverage = "*"
 ratelimit = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
