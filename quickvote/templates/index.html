@@ -67,7 +67,7 @@
         object: { 'name': '', 'description': '' },
         room: {
             'username': '',
-            'room': '', 
+            'room': '',
             'theme': '',
             'objects': [],
             'type': '',
@@ -95,7 +95,7 @@
             },
             ['user.name'](){
                 if (this.user.name){
-                    this.user.name = this.replaceString(this.user.name, 30); 
+                    this.user.name = this.replaceString(this.user.name, 30);
                 }
             },
             ['user.room'](){
@@ -117,7 +117,9 @@
                 payload = JSON.stringify(this.room);
                 axios.post(api_url, payload).then(response =>{
                     const room = response.data;
-                    location.href = '/' + room.room + '/' + this.room.username + '/' + room.password;
+                    room.username = this.room.username
+                    this.room = room
+                    document.getElementById('enter_here').click()
                 }).
                 catch((er) => {
                     this.generateModal('Já existe uma sala com esse nome!');
