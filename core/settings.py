@@ -31,7 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '.herokuapp.com', 'quickvote.com.br', 'www.quickvote.com.br',
     'https://quickvote.com.br/', 'https://www.quickvote.com.br/',
-    'https://quickvote.com.br', 'https://www.quickvote.com.br'
+    'https://quickvote.com.br', 'https://www.quickvote.com.br',
     ]
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'quickvote',
     'api',
     'rest_framework',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
