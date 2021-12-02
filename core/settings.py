@@ -31,13 +31,11 @@ DEBUG = False
 # ALLOWED_HOSTS = [
 #     '.herokuapp.com', 'quickvote.com.br', 'www.quickvote.com.br',
 #     'https://quickvote.com.br/', 'https://www.quickvote.com.br/',
-#     'https://quickvote.com.br', 'https://www.quickvote.com.br'
+#     'https://quickvote.com.br', 'https://www.quickvote.com.br', 'https://quickvote-django.herokuapp.com'
 #     ]
 ALLOWED_HOSTS = [
-    'https://quickvote-django.herokuapp.com', 'https://quickvote.com.br', 'https://quickvote.com.br',
-    ]
-
-
+    'https://quickvote.com.br', 'https://www.quickvote.com.br', 'https://quickvote-django.herokuapp.com',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -68,10 +66,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ALLOWED_HOSTS  # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
-CORS_ALLOWED_ORIGIN_REGEXES = ALLOWED_HOSTS
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = (
+    'https://quickvote.com.br', 'https://www.quickvote.com.br', 'https://quickvote-django.herokuapp.com',
+)
 
 ROOT_URLCONF = 'core.urls'
 
