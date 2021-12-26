@@ -49,3 +49,8 @@ class User:
         return {
             'name': self.name
         }
+
+
+class UserPlanning(User):
+    def __init__(self, name, room: str, admin=False):
+        super().__init__(name, room, admin)
