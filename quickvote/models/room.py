@@ -1,6 +1,6 @@
 from typing import List, Dict
 from quickvote.models.user import User
-from quickvote.models.object import Object
+from quickvote.models.object import Object, ObjectPlanning
 
 
 class RoomInterface:
@@ -140,6 +140,58 @@ class RoomObjects(RoomInterface):
             for obj in self.objects:
                 if user.vote == obj.name:
                     obj.number_of_votes += 1
+
+    def _clear(self, clear_vote_name: bool = False):
+        users_ready = [user for user in self.users if user.ready]
+        if len(users_ready) == len(self.users):
+            if clear_vote_name:
+                for user in self.users:
+                    user.vote = None
+            for obj in self.objects:
+                obj.number_of_votes = 0
+            return True
+        return False
+
+    def serialize(self):
+        return {
+            'room': self.room_name,
+            'type': self.type,
+            'theme': self.theme,
+            'started': self._started,
+            'users': [user.serialize() for user in self.users],
+            'objects': [obj.serialize() for obj in self.objects],
+        }
+
+    def advanced_serialize(self):
+        return {
+            'room': self.room_name,
+            'type': self.type,
+            'theme': self.theme,
+            'started': self._started,
+            'password': self.password,
+            'users': [user.serialize() for user in self.users],
+            'objects': [obj.serialize() for obj in self.objects],
+        }
+
+
+class RoomPlanning(RoomInterface):
+    def __init__(self, theme: str, password: str, room_name: str, objects: List, users: List[User] = None):
+        super().__init__(theme=theme, password=password, room_name=room_name, users=users)
+        if objects:
+            self.objects = [ObjectPlanning(obj.get('name'), 0, obj.get('description')) for obj in objects]
+        self.object_selected = self.objects[0]
+
+    def _refresh_votes(self):
+        self._clear()
+        for user in self.users:
+            if user.vote:
+                self.object_selected.number_of_votes += 1
+                self.object_selected.votes.append(user.vote)
+
+    def put_selected_object(self, name: str):
+        for obj in self.objects:
+            if obj.name == name:
+                self.object_selected = obj
 
     def _clear(self, clear_vote_name: bool = False):
         users_ready = [user for user in self.users if user.ready]
