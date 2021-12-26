@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Correcting response">
-      <change afterPath="$PROJECT_DIR$/quickvote/models/type_votes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/object.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/object.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating new object">
       <change beforePath="$PROJECT_DIR$/quickvote/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,34 +59,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Refactor consumer">
-      <created>1633095461886</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095461886</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Creating a form to enter and create a room">
-      <created>1633095502028</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095502028</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Refactoring HTML from index.html and script">
-      <created>1633095577500</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095577500</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Refactoring HTML from room.html and Script">
-      <created>1633095620391</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095620391</updated>
     </task>
     <task id="LOCAL-00008" summary="Refactoring room.py">
       <created>1633095634691</created>
@@ -407,7 +375,35 @@
       <option name="project" value="LOCAL" />
       <updated>1638478570435</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Creating new user">
+      <created>1640561696534</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1640561696534</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Creating new model">
+      <created>1640561703765</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1640561703765</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Creating new room">
+      <created>1640561721333</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1640561721333</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Creating new object">
+      <created>1640561729555</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1640561729555</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -426,10 +422,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring JavaScript" />
-    <MESSAGE value="Creating Modal Div and refactoring JavaScript" />
-    <MESSAGE value="Removing token and creating password" />
-    <MESSAGE value="Refactoring variables" />
     <MESSAGE value="Refactoring clear function" />
     <MESSAGE value="Creating remove server function" />
     <MESSAGE value="Refactoring actions.py" />
@@ -451,7 +443,11 @@
     <MESSAGE value="Merge with develop and removing tests" />
     <MESSAGE value="Refactoring static files" />
     <MESSAGE value="Correcting response" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcting response" />
+    <MESSAGE value="Creating new user" />
+    <MESSAGE value="Creating new model" />
+    <MESSAGE value="Creating new room" />
+    <MESSAGE value="Creating new object" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating new object" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
