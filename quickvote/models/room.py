@@ -180,6 +180,7 @@ class RoomPlanning(RoomInterface):
         if objects:
             self.objects = [ObjectPlanning(obj.get('name'), 0, obj.get('description')) for obj in objects]
         self.object_selected = self.objects[0]
+        self.type = 'planning'
 
     def _refresh_votes(self):
         self._clear()
