@@ -3,6 +3,7 @@ from ratelimit import limits
 from quickvote import actions
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from quickvote.models.room import Room, RoomObjects, RoomPlanning
 
 
 class ApiViewSet(ModelViewSet):
@@ -33,9 +34,14 @@ class ApiViewSet(ModelViewSet):
         json = js.loads(j)
 
         if not actions.scenery.if_room_exists(json.get('room')):
-            if json.get('type') == 'objects':
+            if json.get('type') == 'planning':
                 room = actions.create_room_for_objects(json.get('room'), json.get('theme'),
-                                                       password=json.get('password'), objects=json.get('objects'))
+                                                       password=json.get('password'), objects=json.get('objects'),
+                                                       room_obj=RoomPlanning)
+            elif json.get('type') == 'objects':
+                room = actions.create_room_for_objects(json.get('room'), json.get('theme'),
+                                                       password=json.get('password'), objects=json.get('objects'),
+                                                       room_obj=RoomObjects)
             else:
                 room = actions.create_room_for_users(json.get('room'), json.get('theme'), password=json.get('password'))
             return Response(room.advanced_serialize(), status=200,
