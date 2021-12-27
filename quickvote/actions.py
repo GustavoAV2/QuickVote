@@ -1,9 +1,9 @@
 from typing import Dict
+from secrets import compare_digest
 from cryptography.fernet import Fernet
 from quickvote.models.user import User
 from quickvote.models.scenery import Scenery
-from quickvote.models.room import Room, RoomObjects
-from secrets import compare_digest
+from quickvote.models.room import Room, RoomObjects, RoomPlanning
 
 
 class Actions:
@@ -21,10 +21,11 @@ class Actions:
                 actual_server.add_user_on_the_server(user)
         return actual_server
 
-    def create_room_for_objects(self, room: str, theme: str, objects, users=[], password="") -> Room:
+    def create_room_for_objects(self, room: str, theme: str, objects, room_obj: RoomObjects or RoomPlanning,
+                                users=[], password="") -> Room:
         encrypt_password = self.cryptography.encrypt(password.encode()).decode()
         actual_server = self.scenery.adding_server(
-            RoomObjects(theme=theme, room_name=room, objects=objects, password=encrypt_password)
+            room_obj(theme=theme, room_name=room, objects=objects, password=encrypt_password)
             )
         if users:
             for user in users:
