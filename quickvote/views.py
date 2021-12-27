@@ -67,3 +67,37 @@ class RoomView(TemplateView):
                         return redirect('fast-login', room_name=room_name, password=password)
                 return redirect('home')
         return redirect('home')
+
+
+class RoomPlanningView(TemplateView):
+    template_name = 'room_planning.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(RoomPlanningView, self).get_context_data(**kwargs)
+        context['room_name'] = mark_safe(self.kwargs.get('room_name'))
+        context['username'] = mark_safe(self.kwargs.get('username'))
+        context['url_socket_room'] = ROOM_SOCKET_URL
+        context['url_socket_chat'] = CHAT_SOCKET_URL
+        context['tutorial'] = """
+        \tSeja bem vindo!\n
+        \t* Quando estiver preparado para a votação clique no botão 'Pronto'!\n
+        """
+        return context
+
+    @limits(calls=6, period=60)
+    def get(self, request, *args, **kwargs):
+        room_name = mark_safe(self.kwargs.get('room_name'))
+        username = mark_safe(self.kwargs.get('username'))
+        password = mark_safe(self.kwargs.get('password'))
+
+        if room_name and username:
+            room = actions.scenery.get_room_by_room_name(room_name)
+            if room:
+                if actions.login(room_name, password):
+                    if not room.get_user_by_name(username):
+                        context = self.get_context_data(**kwargs)
+                        return self.render_to_response(context)
+                    else:
+                        return redirect('fast-login', room_name=room_name, password=password)
+                return redirect('home')
+        return redirect('home')
