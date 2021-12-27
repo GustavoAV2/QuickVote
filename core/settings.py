@@ -26,12 +26,13 @@ SECRET_KEY = 'h6__pz5m$yk#s2l93$c6ux=%!r1hm%3h%5-^$pb9wzv5^gp*@3'
 # SECURITY WARNING: don't run with debug turned on in production!
 # TO USE SHELL: python manage.py shell
 # TO GENERATE STATIC FILES: python manage.py collectstatic
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com', 'quickvote.com.br', 'www.quickvote.com.br',
     'https://quickvote.com.br/', 'https://www.quickvote.com.br/',
     'https://quickvote.com.br', 'https://www.quickvote.com.br',
+    '127.0.0.1:8000', '127.0.0.1'
     ]
 
 # Application definition

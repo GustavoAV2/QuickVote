@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Creating new object">
-      <change beforePath="$PROJECT_DIR$/quickvote/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/user.py" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Removing new object">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +60,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Refactoring room.py">
-      <created>1633095634691</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1633095634691</updated>
     </task>
     <task id="LOCAL-00009" summary="Creating API routes and Viewset">
       <created>1633095664719</created>
@@ -403,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640561729555</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Removing new object">
+      <created>1640561753660</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1640561753661</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -422,7 +423,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring clear function" />
     <MESSAGE value="Creating remove server function" />
     <MESSAGE value="Refactoring actions.py" />
     <MESSAGE value="Refactoring room.py" />
@@ -447,7 +447,8 @@
     <MESSAGE value="Creating new model" />
     <MESSAGE value="Creating new room" />
     <MESSAGE value="Creating new object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating new object" />
+    <MESSAGE value="Removing new object" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing new object" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
