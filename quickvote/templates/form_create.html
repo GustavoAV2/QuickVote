@@ -22,6 +22,7 @@
                     <select id="select" v-model="type" name="type" style="width: 80%;">
                         <option :value="'users'">Eleição</option>
                         <option :value="'objects'">Votar em itens</option>
+                        <option :value="'planning'">Planning Poker</option>
                     </select>
                     <p id="attention">Acentos serão ignorados!</p>
                     
@@ -32,7 +33,7 @@
             </div>
 
             <!-- Romm Objects -->
-            <div v-if="type=='objects'" class="ml-lg-auto col-lg-13 col-md-6 col-12" style="display: block;" data-aos="fade-up" data-aos-delay="100">
+            <div v-if="type=='objects' || type=='planning'" class="ml-lg-auto col-lg-13 col-md-6 col-12" style="display: block;" data-aos="fade-up" data-aos-delay="100">
                 <template v-if="table && objects.length">
                     <div  data-aos="fade-up" data-aos-delay="180">
                         <div class="row table-objects">
