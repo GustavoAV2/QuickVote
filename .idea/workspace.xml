@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Adding static and tests">
-      <change afterPath="$PROJECT_DIR$/quickvote/templates/room_planning.html" afterDir="false" />
+    <list default="true" id="4a28f281-45f7-40ab-8c51-111e9341c0a7" name="Default Changelist" comment="Fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/viewset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quickvote/models/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/models/room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/form_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/form_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickvote/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quickvote/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,48 +64,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632329955665</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fixing url path">
-      <created>1633457022143</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1633457022143</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Adding environment variables to settings.py and context">
-      <created>1633457077280</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1633457077280</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Merge with develop">
-      <created>1633457681403</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1633457681403</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Deleting last_script.html">
-      <created>1633457864396</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1633457864396</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adding tutorial in context">
-      <created>1633737019501</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1633737019502</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Refactoring HTML, CSS and JavaScript">
-      <created>1633737069899</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1633737069900</updated>
     </task>
     <task id="LOCAL-00017" summary="Refactoring HTML and CSS">
       <created>1633737095379</created>
@@ -415,7 +366,49 @@
       <option name="project" value="LOCAL" />
       <updated>1640563910585</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Creating new template">
+      <created>1640566246303</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566246303</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Adding new function">
+      <created>1640566264656</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566264656</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fixing type room">
+      <created>1640566275162</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566275162</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Fixing url">
+      <created>1640566300477</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566300477</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Fixing condition">
+      <created>1640566327502</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566327502</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Fixing">
+      <created>1640566345790</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1640566345790</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -434,12 +427,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring room.py" />
-    <MESSAGE value="Refactoring settings.py" />
-    <MESSAGE value="Refactoring user.py Model" />
-    <MESSAGE value="Refactoring scenery.py" />
-    <MESSAGE value="Correcting called function" />
-    <MESSAGE value="Correcting room_name" />
     <MESSAGE value="Refactor files" />
     <MESSAGE value="Creating Icons" />
     <MESSAGE value="Refactor base.html" />
@@ -459,7 +446,13 @@
     <MESSAGE value="Removing new object" />
     <MESSAGE value="Debug true" />
     <MESSAGE value="Adding static and tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding static and tests" />
+    <MESSAGE value="Creating new template" />
+    <MESSAGE value="Adding new function" />
+    <MESSAGE value="Fixing type room" />
+    <MESSAGE value="Fixing url" />
+    <MESSAGE value="Fixing condition" />
+    <MESSAGE value="Fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
